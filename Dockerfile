@@ -37,5 +37,3 @@ RUN ./install.sh
 WORKDIR /protos
 RUN chown -R fonos /protos
 USER fonos
-
-EXPOSE 8080
