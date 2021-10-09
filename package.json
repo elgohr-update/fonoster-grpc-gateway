@@ -1,0 +1,51 @@
+{
+  "name": "@fonoster/grpc-gateway",
+  "version": "0.1.0",
+  "description": "Dynamic gRPC Gateway",
+  "main": "index.js",
+  "bin": {
+    "run": "run.js"
+  },
+  "scripts": {
+    "start": "./run.js",
+    "test": "jest",
+    "test:update": "npm test -- --updateSnapshot",
+    "test:watch": "npm test -- --watch",
+    "release": "release-it -p -n"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fonoster/grpc-gateway.git"
+  },
+  "keywords": [
+    "grpc",
+    "express",
+    "middleware",
+    "swagger",
+    "rest",
+    "json",
+    "protobuf"
+  ],
+  "author": "Pedro Sanders <psanders@fonoster.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/fonoster/grpc-gateway/issues"
+  },
+  "homepage": "https://github.com/fonoster/grpc-gateway/issues#readme",
+  "dependencies": {
+    "@grpc/proto-loader": "0.5.1",
+    "body-parser": "^1.18.2",
+    "chalk": "^3.0.0",
+    "express": "^4.16.3",
+    "grpc": "^1.24.11",
+    "js-yaml": "^3.14.0",
+    "json-colorizer": "^2.0.0",
+    "protocol-buffers-schema": "^3.3.2",
+    "swagger-ui-express": "^4.1.6",
+    "yargs": "^14.0.0"
+  },
+  "devDependencies": {
+    "jest": "^26.1.0",
+    "release-it": "^13.6.5"
+  }
+}
