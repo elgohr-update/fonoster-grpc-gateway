@@ -49,4 +49,4 @@ WORKDIR /protos
 RUN chown -R fonos /protos
 USER fonos
 
-HEALTHCHECK CMD curl --fail  http://localhost:8080/ping || exit 1
+HEALTHCHECK CMD curl --fail  http://localhost:8080/api/ping || exit 1

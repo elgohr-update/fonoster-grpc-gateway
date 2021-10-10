@@ -20,15 +20,15 @@ const protosFiles = fs.readdirSync(protosDir)
 
 // load the proxy on / URL
 const debug = process.env.DEBUG === "true"
-app.use('/', grpcGateway(protosFiles, grpcAddr, void(0) , debug, protosDir))
+app.use('/api', grpcGateway(protosFiles, grpcAddr, void(0) , debug, protosDir))
 
-app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+app.use("/api/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
-app.get("/ping", (req, res) => res.send("pong"));
+app.get("/api/ping", (req, res) => res.send("pong"));
 
 // Keep the default port if running on docker (to avoid healthcheck failure)
 const port = process.env.PORT || 8080
 
 app.listen(port, () => {
-  console.log(`Listening on http://0.0.0.0:${port}`)
+  console.log(`Listening on 0.0.0.0 @ ${port}`)
 })
