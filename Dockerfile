@@ -44,7 +44,8 @@ COPY --from=builder /protos/apidocs.swagger.json /swagger.json
 COPY --from=builder /protos /protos
 COPY . /scripts
 
-RUN ./install.sh
+RUN ./install.sh \
+  && apk add curl
 WORKDIR /protos
 RUN chown -R fonos /protos
 USER fonos
