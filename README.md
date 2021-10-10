@@ -1,8 +1,8 @@
-# Dynamic gRPC Gateway
+# GRPC Gateway
 
 [![publish to docker hub](https://github.com/fonoster/grpc-gateway/actions/workflows/gh-docker.yml/badge.svg)](https://github.com/fonoster/grpc-gateway/actions/workflows/gh-docker.yml)
 
-This repository contains a dockerized distribution of Asterisk PBX 16 for use in [Project Fonos](https://github.com/fonoster/fonos). For more documentation on how Fonos images are constructed and how to work with them, please see the [documentation](https://github.com/fonoster/fonos).
+This repository contains a dockerized distribution of Fonos GRPC Gateway for use in [Project Fonos](https://github.com/fonoster/fonos). For more documentation on how Fonos images are constructed and how to work with them, please see the [documentation](https://github.com/fonoster/fonos).
 
 ## Available Versions
 
@@ -40,7 +40,7 @@ docker run -it \
 
 Environment variables are used in the entry point script to render configuration templates. You can specify the values of these variables during `docker run`, `docker-compose up`, or in Kubernetes manifests in the `env` array.
 
-- `APISERVER_ENDPOINT` - gRPC endpoint. Defaults to `localhost:50051`
+- `APISERVER_ENDPOINT` - GRPC endpoint. Defaults to `localhost:50051`
 
 ## Exposed ports
 
