@@ -19,7 +19,8 @@ const protosFiles = fs.readdirSync(protosDir)
   .filter(el => el !== "common.proto" && path.extname(el) === '.proto')
 
 // load the proxy on / URL
-app.use('/', grpcGateway(protosFiles, grpcAddr, void(0) , true, protosDir))
+const debug = process.env.DEBUG === "true"
+app.use('/', grpcGateway(protosFiles, grpcAddr, void(0) , debug, protosDir))
 
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
