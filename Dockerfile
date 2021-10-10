@@ -1,17 +1,27 @@
 FROM golang AS builder
 LABEL maintainer="Pedro Sanders <psanders@fonoster.com>"
 
-ENV PROTOS="common.proto agents.proto domains.proto"
 ENV PROTOC_VERSION=3.18.1
 ENV PROTOC_ZIP=protoc-$PROTOC_VERSION-linux-x86_64.zip
-ENV BRANCH=main
+ENV BRANCH=dev
+ENV PROTOS=" \
+  common.proto \ 
+  agents.proto \
+  domains.proto \
+  providers.proto \ 
+  numbers.proto \
+  callmanager.proto \
+  auth.proto \
+  funcs.proto \
+  secrets.proto \
+  storage.proto"
 
 WORKDIR /protos
 COPY protos /protos
 
 ADD https://raw.githubusercontent.com/fonoster/fonos/$BRANCH/mods/core/src/protos/common.proto /protos/common.proto
-ADD https://raw.githubusercontent.com/fonoster/fonos/$BRANCH/mods/domains/src/protos/domains.proto /protos/domains.proto
 ADD https://raw.githubusercontent.com/fonoster/fonos/$BRANCH/mods/agents/src/protos/agents.proto /protos/agents.proto
+ADD https://raw.githubusercontent.com/fonoster/fonos/$BRANCH/mods/domains/src/protos/domains.proto /protos/domains.proto
 ADD https://raw.githubusercontent.com/fonoster/fonos/$BRANCH/mods/providers/src/protos/providers.proto /protos/providers.proto
 ADD https://raw.githubusercontent.com/fonoster/fonos/$BRANCH/mods/numbers/src/protos/numbers.proto /protos/numbers.proto
 ADD https://raw.githubusercontent.com/fonoster/fonos/$BRANCH/mods/callmanager/src/protos/callmanager.proto /protos/callmanager.proto
