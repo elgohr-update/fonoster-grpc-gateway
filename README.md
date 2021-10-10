@@ -41,6 +41,7 @@ docker run -it \
 Environment variables are used in the entry point script to render configuration templates. You can specify the values of these variables during `docker run`, `docker-compose up`, or in Kubernetes manifests in the `env` array.
 
 - `APISERVER_ENDPOINT` - GRPC endpoint. Defaults to `localhost:50051`
+- `DEBUG` - Set to "true" send debug information to the terminal. Defaults to "false"
 
 ## Exposed ports
 
