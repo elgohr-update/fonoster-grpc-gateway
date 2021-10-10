@@ -4,7 +4,7 @@ LABEL maintainer="Pedro Sanders <psanders@fonoster.com>"
 ENV PROTOS="common.proto agents.proto domains.proto"
 ENV PROTOC_VERSION=3.18.1
 ENV PROTOC_ZIP=protoc-$PROTOC_VERSION-linux-x86_64.zip
-ENV BRANCH=dev
+ENV BRANCH=main
 
 WORKDIR /protos
 COPY protos /protos
