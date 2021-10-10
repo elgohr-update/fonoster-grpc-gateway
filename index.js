@@ -97,7 +97,8 @@ const middleware = (protoFiles, grpcLocation, credentials = requiredGrpc.credent
                       if (err) {
                         console.error(colors.red(`${svc}.${m.name}`, err.message))
                         console.trace()
-                        return res.status(500).json({ code: err.code, message: err.message })
+                        const error = convertError(err)
+                        return res.status(error.status).json(error)
                       }
                       res.json(convertBody(ans, httpRule.body, httpRule[httpMethod]))
                     })
@@ -198,6 +199,28 @@ const convertBody = (value, bodyMap) => {
     return value
   } else {
     return value[bodyMap]
+  }
+}
+
+/**
+ * Maps gRPC error to the HTTP equivalent
+ * @param  {Error} error   gRPC error
+ * @return {any}          mapped output for `res.send()`
+ */
+ const convertError = (error) => {
+  const { details } = error
+  let status
+  switch (error.code) {
+    case 16:
+      status = 401
+      break
+    default:
+      status = 500
+  }
+
+  return {
+    status,
+    message: details
   }
 }
 

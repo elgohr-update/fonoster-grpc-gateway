@@ -7,7 +7,7 @@
     "run": "run.js"
   },
   "scripts": {
-    "start": "./run.js",
+    "start": "APISERVER_ENDPOINT=localhost:50052 PROTOS_DIR=$(pwd)/protos ./run.js",
     "test": "jest",
     "test:update": "npm test -- --updateSnapshot",
     "test:watch": "npm test -- --watch",

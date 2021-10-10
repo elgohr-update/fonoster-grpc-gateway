@@ -2,7 +2,8 @@ FROM golang AS builder
 LABEL maintainer="Pedro Sanders <psanders@fonoster.com>"
 
 ENV PROTOS="common.proto agents.proto domains.proto"
-ENV PROTOC_ZIP=protoc-3.14.0-linux-x86_64.zip
+ENV PROTOC_VERSION=3.18.1
+ENV PROTOC_ZIP=protoc-$PROTOC_VERSION-linux-x86_64.zip
 ENV BRANCH=dev
 
 WORKDIR /protos
@@ -20,12 +21,12 @@ ADD https://raw.githubusercontent.com/fonoster/fonos/$BRANCH/mods/secrets/src/pr
 ADD https://raw.githubusercontent.com/fonoster/fonos/$BRANCH/mods/storage/src/protos/storage.proto /protos/storage.proto
 
 RUN apt-get update && apt-get install -y unzip
-RUN curl -OL https://github.com/protocolbuffers/protobuf/releases/download/v3.14.0/$PROTOC_ZIP \
+RUN curl -OL https://github.com/protocolbuffers/protobuf/releases/download/v$PROTOC_VERSION/$PROTOC_ZIP \
   && unzip -o $PROTOC_ZIP -d /usr/local bin/protoc \
   && unzip -o $PROTOC_ZIP -d /usr/local 'include/*' \
   && rm -f $PROTOC_ZIP \
   && go install github.com/grpc-ecosystem/grpc-gateway/v2/protoc-gen-openapiv2@latest \
-  && protoc -I /protos $PROTOS --openapiv2_out=allow_merge=true,logtostderr=true:.
+  && protoc -I /protos $PROTOS --openapiv2_out=disable_default_errors=true,openapi_naming_strategy=simple,allow_merge=true,logtostderr=true:.
 
 # Second stage
 FROM fonoster/base
@@ -37,3 +38,5 @@ RUN ./install.sh
 WORKDIR /protos
 RUN chown -R fonos /protos
 USER fonos
+
+HEALTHCHECK CMD curl --fail  http://localhost:8080/ping || exit 1
