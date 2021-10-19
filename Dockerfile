@@ -3,12 +3,13 @@ LABEL maintainer="Pedro Sanders <psanders@fonoster.com>"
 
 ENV PROTOC_VERSION=3.18.1
 ENV PROTOC_ZIP=protoc-$PROTOC_VERSION-linux-x86_64.zip
-ENV BRANCH=dev
+ENV BRANCH=master
 ENV PROTOS=" \
-  common.proto \ 
+  common.proto \
+  users.proto \  
   agents.proto \
   domains.proto \
-  providers.proto \ 
+  providers.proto \
   numbers.proto \
   callmanager.proto \
   auth.proto \
@@ -19,7 +20,9 @@ ENV PROTOS=" \
 WORKDIR /protos
 COPY protos /protos
 
+
 ADD https://raw.githubusercontent.com/fonoster/fonos/$BRANCH/mods/core/src/protos/common.proto /protos/common.proto
+ADD https://raw.githubusercontent.com/fonoster/fonos/$BRANCH/mods/users/src/protos/users.proto /protos/users.proto
 ADD https://raw.githubusercontent.com/fonoster/fonos/$BRANCH/mods/agents/src/protos/agents.proto /protos/agents.proto
 ADD https://raw.githubusercontent.com/fonoster/fonos/$BRANCH/mods/domains/src/protos/domains.proto /protos/domains.proto
 ADD https://raw.githubusercontent.com/fonoster/fonos/$BRANCH/mods/providers/src/protos/providers.proto /protos/providers.proto
