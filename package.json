@@ -1,6 +1,6 @@
 {
   "name": "@fonoster/grpc-gateway",
-  "version": "#{FONOS_VERSION}",
+  "version": "0.1.0",
   "description": "Dynamic gRPC Gateway",
   "main": "index.js",
   "bin": {
