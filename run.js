@@ -6,7 +6,9 @@ const cors = require('cors')
 const express = require('express')
 const bodyParser = require('body-parser')
 const swaggerUi = require("swagger-ui-express")
-const swaggerDocument = require('/swagger.json')
+const swaggerDocument = fs.existsSync("/swagger.json")
+  ? require('/swagger.json')
+  : require('./swagger.json')
 
 const app = express()
 

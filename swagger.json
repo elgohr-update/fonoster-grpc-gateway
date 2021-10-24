@@ -1,0 +1,386 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Project Fonos",
+    "version": "v1beta1",
+    "contact": {
+      "name": "Fonoster OSS",
+      "url": "https://fonoster.com",
+      "email": "psanders@fonoster.com"
+    },
+    "license": {
+      "name": "MIT License",
+      "url": "https://raw.githubusercontent.com/fonoster/fonos/main/LICENSE"
+    }
+  },
+  "tags": [
+    {
+      "name": "Users"
+    }
+  ],
+  "basePath": "/api",
+  "schemes": [
+    "https",
+    "http"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/v1beta1/users": {
+      "post": {
+        "summary": "Creates a new User resource",
+        "operationId": "Users_CreateUser",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          },
+          "error": {
+            "description": "System or user error",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CreateUserRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Users"
+        ]
+      }
+    },
+    "/v1beta1/users/credentials": {
+      "post": {
+        "summary": "Creates a set of credentials",
+        "operationId": "Users_CreateUserCredentials",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/CreateUserCredentialsResponse"
+            }
+          },
+          "error": {
+            "description": "System or user error",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CreateUserCredentialsRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Users"
+        ]
+      }
+    },
+    "/v1beta1/users/{ref}": {
+      "get": {
+        "summary": "Gets User by reference",
+        "operationId": "Users_GetUser",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          },
+          "error": {
+            "description": "System or user error",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "ref",
+            "description": "User reference",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Users"
+        ]
+      },
+      "delete": {
+        "summary": "WARNING: Hard delete of an User will remove all related projects and its resources.",
+        "operationId": "Users_DeleteUser",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/Empty"
+            }
+          },
+          "error": {
+            "description": "System or user error",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "ref",
+            "description": "User reference",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Users"
+        ]
+      },
+      "put": {
+        "summary": "Change or update fields in a resource",
+        "operationId": "Users_UpdateUser",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          },
+          "error": {
+            "description": "System or user error",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "ref",
+            "description": "User reference",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "example": {
+                "ref": "407f1679010c19729de860rp",
+                "name": "John Doe",
+                "avatar": "https://avatar.net/0121323/image.jpg"
+              },
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "secret": {
+                  "type": "string"
+                },
+                "avatar": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ],
+        "tags": [
+          "Users"
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "CreateUserCredentialsRequest": {
+      "type": "object",
+      "example": {
+        "email": "john.doe@fonoster.io",
+        "secret": "$U@tl0125",
+        "expiration": "7d"
+      },
+      "properties": {
+        "email": {
+          "type": "string"
+        },
+        "secret": {
+          "type": "string"
+        },
+        "expiration": {
+          "type": "string"
+        }
+      }
+    },
+    "CreateUserCredentialsResponse": {
+      "type": "object",
+      "example": {
+        "accessKeyId": "407f1679010c19729de860rp",
+        "accessKeySecret": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+      },
+      "properties": {
+        "accessKeyId": {
+          "type": "string"
+        },
+        "accessKeySecret": {
+          "type": "string"
+        }
+      }
+    },
+    "CreateUserRequest": {
+      "type": "object",
+      "example": {
+        "email": "john.doe@fonoster.io",
+        "name": "John Doe",
+        "secret": "$U@tl0125",
+        "avatar": "https://avatar.net/0121323/image.jpg"
+      },
+      "properties": {
+        "email": {
+          "type": "string",
+          "required": [
+            "email"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "required": [
+            "name"
+          ]
+        },
+        "secret": {
+          "type": "string",
+          "required": [
+            "secret"
+          ]
+        },
+        "avatar": {
+          "type": "string",
+          "title": "Url to the User's avatar"
+        }
+      },
+      "required": [
+        "email",
+        "name",
+        "secret"
+      ]
+    },
+    "Empty": {
+      "type": "object"
+    },
+    "Error": {
+      "type": "object",
+      "example": {
+        "status": 0,
+        "message": "string"
+      },
+      "properties": {
+        "status": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        }
+      }
+    },
+    "User": {
+      "type": "object",
+      "example": {
+        "ref": "407f1679010c19729de860rp",
+        "accessKeyId": "407f1679010c19729de860rp",
+        "email": "john.doe@acme.com",
+        "name": "John Doe",
+        "avatar": "https://avatar.net/0121323/image.jpg",
+        "createTime": "2021-10-05T13:23:07.221Z",
+        "updateTime": "2021-10-05T13:23:07.221Z"
+      },
+      "properties": {
+        "ref": {
+          "type": "string",
+          "required": [
+            "ref"
+          ]
+        },
+        "accessKeyId": {
+          "type": "string",
+          "required": [
+            "access_key_id"
+          ]
+        },
+        "email": {
+          "type": "string",
+          "required": [
+            "email"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "required": [
+            "name"
+          ]
+        },
+        "avatar": {
+          "type": "string"
+        },
+        "createTime": {
+          "type": "string",
+          "readOnly": true
+        },
+        "updateTime": {
+          "type": "string",
+          "readOnly": true
+        }
+      },
+      "required": [
+        "ref",
+        "accessKeyId",
+        "email",
+        "name"
+      ]
+    }
+  },
+  "securityDefinitions": {
+    "AccessKeyId": {
+      "type": "apiKey",
+      "name": "access_key_id",
+      "in": "header"
+    },
+    "AccessKeySecret": {
+      "type": "apiKey",
+      "name": "access_key_secret",
+      "in": "header"
+    }
+  },
+  "security": [
+    {
+      "AccessKeyId": [],
+      "AccessKeySecret": []
+    }
+  ],
+  "externalDocs": {
+    "description": "Github Repo",
+    "url": "https://github.com/fonoster/fonos"
+  }
+}

@@ -35,3 +35,17 @@ jspm_packages
 
 # Optional REPL history
 .node_repl_history
+
+# Ignore testing protos
+protos/common.proto
+protos/users.proto
+protos/projects.proto
+protos/agents.proto
+protos/domains.proto
+protos/providers.proto
+protos/numbers.proto
+protos/callmanager.proto
+protos/auth.proto
+protos/funcs.proto
+protos/secrets.proto
+protos/storage.proto

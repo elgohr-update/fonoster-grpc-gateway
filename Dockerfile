@@ -21,7 +21,6 @@ ENV PROTOS=" \
 WORKDIR /protos
 COPY protos /protos
 
-
 ADD https://raw.githubusercontent.com/fonoster/fonos/$BRANCH/mods/core/src/protos/common.proto /protos/common.proto
 ADD https://raw.githubusercontent.com/fonoster/fonos/$BRANCH/mods/users/src/protos/users.proto /protos/users.proto
 ADD https://raw.githubusercontent.com/fonoster/fonos/$BRANCH/mods/projects/src/protos/projects.proto /protos/projects.proto

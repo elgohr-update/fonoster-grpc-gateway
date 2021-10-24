@@ -3,7 +3,7 @@
 /* global describe, it, expect */
 const { convertParams, convertUrl, convertBody, getParamsList, convertHeaders } = require('..')
 
-describe('gRPC Dynamic Gateway', () => {
+describe('gRPC Gateway', () => {
   describe('convertParams()', () => {
     it('should handle /v1/hi/{name}', () => {
       const req = {

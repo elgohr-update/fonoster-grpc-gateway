@@ -7,11 +7,20 @@
     "run": "run.js"
   },
   "scripts": {
-    "start": "APISERVER_ENDPOINT=localhost:50052 PROTOS_DIR=$(pwd)/protos ./run.js",
+    "init": "./.script/init.sh",
+    "prestart": "./.scripts/generate_swagger.sh",
+    "start": "APISERVER_ENDPOINT=localhost:50052 PROTOS_DIR=$(pwd)/protos nodemon run.js",
     "test": "jest",
     "test:update": "npm test -- --updateSnapshot",
     "test:watch": "npm test -- --watch",
     "release": "release-it -p -n"
+  },
+  "nodemonConfig": {
+    "watch": [
+      "./protos"
+    ],
+    "ext": "proto",
+    "ignore": "**/*.d.ts"
   },
   "repository": {
     "type": "git",
@@ -47,6 +56,8 @@
   },
   "devDependencies": {
     "jest": "^26.1.0",
+    "nodemon": "^2.0.14",
+    "protoc": "^1.0.4",
     "release-it": "^13.6.5"
   }
 }
