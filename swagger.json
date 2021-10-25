@@ -15,7 +15,37 @@
   },
   "tags": [
     {
+      "name": "Projects"
+    },
+    {
       "name": "Users"
+    },
+    {
+      "name": "Domains"
+    },
+    {
+      "name": "Agents"
+    },
+    {
+      "name": "Providers"
+    },
+    {
+      "name": "Numbers"
+    },
+    {
+      "name": "CallManager"
+    },
+    {
+      "name": "Auth"
+    },
+    {
+      "name": "Funcs"
+    },
+    {
+      "name": "Secrets"
+    },
+    {
+      "name": "Storage"
     }
   ],
   "basePath": "/api",
@@ -30,6 +60,1435 @@
     "application/json"
   ],
   "paths": {
+    "/v1beta1/agents": {
+      "get": {
+        "summary": "Lists Agents from the SIP Proxy subsystem",
+        "operationId": "Agents_ListAgents",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/ListAgentsResponse"
+            }
+          },
+          "error": {
+            "description": "System or user error",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "pageSize",
+            "description": "The maximum number of items in the list.",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "pageToken",
+            "description": "The next_page_token value returned from the previous request, if any.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "view",
+            "description": "Level of detail of the individual entities (reserved).",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "BASIC",
+              "STANDARD",
+              "FULL"
+            ],
+            "default": "BASIC"
+          }
+        ],
+        "tags": [
+          "Agents"
+        ]
+      },
+      "post": {
+        "summary": "Creates a new Agent resource",
+        "operationId": "Agents_CreateAgent",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/Agent"
+            }
+          },
+          "error": {
+            "description": "System or user error",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CreateAgentRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Agents"
+        ]
+      }
+    },
+    "/v1beta1/agents/{ref}": {
+      "get": {
+        "summary": "Gets Agent by reference",
+        "operationId": "Agents_GetAgent",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/Agent"
+            }
+          },
+          "error": {
+            "description": "System or user error",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "ref",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Agents"
+        ]
+      },
+      "delete": {
+        "summary": "Hard delete of an Agent resource",
+        "operationId": "Agents_DeleteAgent",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/Empty"
+            }
+          },
+          "error": {
+            "description": "System or user error",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "ref",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Agents"
+        ]
+      },
+      "put": {
+        "summary": "Change or update fields in a resource",
+        "operationId": "Agents_UpdateAgent",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/Agent"
+            }
+          },
+          "error": {
+            "description": "System or user error",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "ref",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "example": {
+                "name": "John Doe",
+                "secret": "1234"
+              },
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "username": {
+                  "type": "string"
+                },
+                "secret": {
+                  "type": "string"
+                },
+                "domains": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "privacy": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ],
+        "tags": [
+          "Agents"
+        ]
+      }
+    },
+    "/v1beta1/auth/role/{name}": {
+      "get": {
+        "summary": "Gets a role by name",
+        "operationId": "Auth_GetRole",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/Role"
+            }
+          },
+          "error": {
+            "description": "System or user error",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Auth"
+        ]
+      }
+    },
+    "/v1beta1/auth/token": {
+      "post": {
+        "summary": "Creates a new token for a given accessKeyId",
+        "operationId": "Auth_CreateToken",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/CreateTokenResponse"
+            }
+          },
+          "error": {
+            "description": "System or user error",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CreateTokenRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Auth"
+        ]
+      }
+    },
+    "/v1beta1/auth/token/{token}": {
+      "get": {
+        "summary": "Verifies if a token was issue by Fonos",
+        "operationId": "Auth_ValidateToken",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/ValidateTokenResponse"
+            }
+          },
+          "error": {
+            "description": "System or user error",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "token",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Auth"
+        ]
+      }
+    },
+    "/v1beta1/call": {
+      "post": {
+        "summary": "Originates a call and pass channel to an application",
+        "operationId": "CallManager_Call",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/CallResponse"
+            }
+          },
+          "error": {
+            "description": "System or user error",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CallRequest"
+            }
+          }
+        ],
+        "tags": [
+          "CallManager"
+        ]
+      }
+    },
+    "/v1beta1/domains": {
+      "post": {
+        "summary": "Creates a new Domain resource",
+        "operationId": "Domains_CreateDomain",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/Domain"
+            }
+          },
+          "error": {
+            "description": "System or user error",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CreateDomainRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Domains"
+        ]
+      }
+    },
+    "/v1beta1/domains/{ref}": {
+      "get": {
+        "summary": "Gets a Domain by reference",
+        "operationId": "Domains_GetDomain",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/Domain"
+            }
+          },
+          "error": {
+            "description": "System or user error",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "ref",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Domains"
+        ]
+      },
+      "delete": {
+        "summary": "Hard delete of a domain resource",
+        "operationId": "Domains_DeleteDomain",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/Empty"
+            }
+          },
+          "error": {
+            "description": "System or user error",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "ref",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Domains"
+        ]
+      },
+      "put": {
+        "summary": "Change or update fields in a resource",
+        "operationId": "Domains_UpdateDomain",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/Domain"
+            }
+          },
+          "error": {
+            "description": "System or user error",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "ref",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "example": {
+                "egressNumberRef": "1yyB170ozd",
+                "egressRule": ".*"
+              },
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "egressRule": {
+                  "type": "string"
+                },
+                "egressNumberRef": {
+                  "type": "string"
+                },
+                "accessDeny": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "accessAllow": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "tags": [
+          "Domains"
+        ]
+      }
+    },
+    "/v1beta1/funcs": {
+      "get": {
+        "summary": "Shows a list of user functions",
+        "operationId": "Funcs_ListFuncs",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/ListFuncsResponse"
+            }
+          },
+          "error": {
+            "description": "System or user error",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "pageSize",
+            "description": "The maximum number of items in the list.",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "pageToken",
+            "description": "The next_page_token value returned from the previous request, if any.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "view",
+            "description": "Level of detail of the individual entities.",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "BASIC",
+              "STANDARD",
+              "FULL"
+            ],
+            "default": "BASIC"
+          }
+        ],
+        "tags": [
+          "Funcs"
+        ]
+      }
+    },
+    "/v1beta1/funcs/{name}": {
+      "get": {
+        "summary": "Gets a function by namem",
+        "operationId": "Funcs_GetFunc",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/Func"
+            }
+          },
+          "error": {
+            "description": "System or user error",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "view",
+            "description": "Requested level of detail.",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "BASIC",
+              "STANDARD",
+              "FULL"
+            ],
+            "default": "BASIC"
+          }
+        ],
+        "tags": [
+          "Funcs"
+        ]
+      },
+      "delete": {
+        "summary": "Peforms a hard delete of the function",
+        "operationId": "Funcs_DeleteFunc",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/Empty"
+            }
+          },
+          "error": {
+            "description": "System or user error",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Funcs"
+        ]
+      }
+    },
+    "/v1beta1/funcs/{name}/logs": {
+      "get": {
+        "summary": "Peforms a hard delete of the function",
+        "operationId": "Funcs_GetFuncLogs",
+        "responses": {
+          "200": {
+            "description": "A successful response.(streaming responses)",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "result": {
+                  "$ref": "#/definitions/FuncLog"
+                },
+                "error": {
+                  "$ref": "#/definitions/Status"
+                }
+              },
+              "title": "Stream result of FuncLog"
+            }
+          },
+          "error": {
+            "description": "System or user error",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "since",
+            "description": "Only return logs after a specific date (RFC3339).",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "tail",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "follow",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          }
+        ],
+        "tags": [
+          "Funcs"
+        ]
+      }
+    },
+    "/v1beta1/numbers": {
+      "get": {
+        "summary": "Lists Numbers from the SIP Proxy subsystem",
+        "operationId": "Numbers_ListNumbers",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/ListNumbersResponse"
+            }
+          },
+          "error": {
+            "description": "System or user error",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "pageSize",
+            "description": "The maximum number of items in the list.",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "pageToken",
+            "description": "The next_page_token value returned from the previous request, if any.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "view",
+            "description": "Level of detail of the individual entities (reserved).",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "BASIC",
+              "STANDARD",
+              "FULL"
+            ],
+            "default": "BASIC"
+          }
+        ],
+        "tags": [
+          "Numbers"
+        ]
+      },
+      "post": {
+        "summary": "Creates a new Number resource",
+        "operationId": "Numbers_CreateNumber",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/Number"
+            }
+          },
+          "error": {
+            "description": "System or user error",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CreateNumberRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Numbers"
+        ]
+      },
+      "put": {
+        "summary": "Change or update fields in a resource",
+        "operationId": "Numbers_UpdateNumber",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/Number"
+            }
+          },
+          "error": {
+            "description": "System or user error",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UpdateNumberRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Numbers"
+        ]
+      }
+    },
+    "/v1beta1/numbers/{ref}": {
+      "get": {
+        "summary": "Gets Number using its reference",
+        "operationId": "Numbers_GetNumber",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/Number"
+            }
+          },
+          "error": {
+            "description": "System or user error",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "ref",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Numbers"
+        ]
+      },
+      "delete": {
+        "summary": "Hard delete of a Number resource",
+        "operationId": "Numbers_DeleteNumber",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/Empty"
+            }
+          },
+          "error": {
+            "description": "System or user error",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "ref",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Numbers"
+        ]
+      }
+    },
+    "/v1beta1/projects": {
+      "get": {
+        "summary": "Lists all the Projects for a given User",
+        "operationId": "Projects_ListProjects",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/ListProjectsResponse"
+            }
+          },
+          "error": {
+            "description": "System or user error",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        },
+        "tags": [
+          "Projects"
+        ]
+      },
+      "post": {
+        "summary": "Creates a new Project resource",
+        "operationId": "Projects_CreateProject",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/Project"
+            }
+          },
+          "error": {
+            "description": "System or user error",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CreateProjectRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Projects"
+        ]
+      }
+    },
+    "/v1beta1/projects/{ref}": {
+      "get": {
+        "summary": "Gets a Project by AccessKeyId",
+        "operationId": "Projects_GetProject",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/Project"
+            }
+          },
+          "error": {
+            "description": "System or user error",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "ref",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Projects"
+        ]
+      },
+      "delete": {
+        "summary": "WARNING: Hard delete of a Project will remove all related resources",
+        "operationId": "Projects_DeleteProject",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/Empty"
+            }
+          },
+          "error": {
+            "description": "System or user error",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "ref",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Projects"
+        ]
+      },
+      "put": {
+        "summary": "Updates a given Project",
+        "operationId": "Projects_UpdateProject",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/Project"
+            }
+          },
+          "error": {
+            "description": "System or user error",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "ref",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "example": {
+                "name": "Acme Corp 2",
+                "allowExperiments": true
+              },
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "allowExperiments": {
+                  "type": "boolean",
+                  "required": [
+                    "allow_experiments"
+                  ]
+                }
+              },
+              "required": [
+                "allowExperiments"
+              ]
+            }
+          }
+        ],
+        "tags": [
+          "Projects"
+        ]
+      }
+    },
+    "/v1beta1/projects/{ref}/credentials": {
+      "get": {
+        "summary": "Regenerates the accessKeySecret",
+        "operationId": "Projects_RenewAccessKeySecret",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/RenewAccessKeySecretResponse"
+            }
+          },
+          "error": {
+            "description": "System or user error",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "ref",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Projects"
+        ]
+      }
+    },
+    "/v1beta1/providers": {
+      "get": {
+        "summary": "Lists Providers from the SIP Proxy subsystem",
+        "operationId": "Providers_ListProviders",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/ListProvidersResponse"
+            }
+          },
+          "error": {
+            "description": "System or user error",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "pageSize",
+            "description": "The maximum number of items in the list.",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "pageToken",
+            "description": "The next_page_token value returned from the previous request, if any.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "view",
+            "description": "Level of detail of the individual entities (reserved).",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "BASIC",
+              "STANDARD",
+              "FULL"
+            ],
+            "default": "BASIC"
+          }
+        ],
+        "tags": [
+          "Providers"
+        ]
+      },
+      "post": {
+        "summary": "Creates a new Provider resource.",
+        "operationId": "Providers_CreateProvider",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/Provider"
+            }
+          },
+          "error": {
+            "description": "System or user error",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CreateProviderRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Providers"
+        ]
+      },
+      "put": {
+        "summary": "Change or update fields in a resource",
+        "operationId": "Providers_UpdateProvider",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/Provider"
+            }
+          },
+          "error": {
+            "description": "System or user error",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UpdateProviderRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Providers"
+        ]
+      }
+    },
+    "/v1beta1/providers/{ref}": {
+      "get": {
+        "summary": "Gets Provider using its reference",
+        "operationId": "Providers_GetProvider",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/Provider"
+            }
+          },
+          "error": {
+            "description": "System or user error",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "ref",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Providers"
+        ]
+      },
+      "delete": {
+        "summary": "Hard delete of a Provider resource",
+        "operationId": "Providers_DeleteProvider",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/Empty"
+            }
+          },
+          "error": {
+            "description": "System or user error",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "ref",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Providers"
+        ]
+      }
+    },
+    "/v1beta1/secrets": {
+      "get": {
+        "summary": "Lists Secret",
+        "operationId": "Secrets_ListSecretsId",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/ListSecretIdResponse"
+            }
+          },
+          "error": {
+            "description": "System or user error",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "pageSize",
+            "description": "The maximum number of items in the list.",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "pageToken",
+            "description": "The next_page_token value returned from the previous request, if any.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "view",
+            "description": "Level of detail of the individual entities (reserved).",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "BASIC",
+              "STANDARD",
+              "FULL"
+            ],
+            "default": "BASIC"
+          }
+        ],
+        "tags": [
+          "Secrets"
+        ]
+      },
+      "post": {
+        "operationId": "Secrets_CreateSecret",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/CreateSecretResponse"
+            }
+          },
+          "error": {
+            "description": "System or user error",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CreateSecretRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Secrets"
+        ]
+      }
+    },
+    "/v1beta1/secrets/{name}": {
+      "get": {
+        "summary": "Gets Secret with the Secret-name",
+        "operationId": "Secrets_GetSecret",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/GetSecretResponse"
+            }
+          },
+          "error": {
+            "description": "System or user error",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "view",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "BASIC",
+              "STANDARD",
+              "FULL"
+            ],
+            "default": "BASIC"
+          }
+        ],
+        "tags": [
+          "Secrets"
+        ]
+      },
+      "delete": {
+        "summary": "Peforms a hard delete of the Secret resource",
+        "operationId": "Secrets_DeleteSecret",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/Empty"
+            }
+          },
+          "error": {
+            "description": "System or user error",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Secrets"
+        ]
+      }
+    },
+    "/v1beta1/storage/{bucket}/{filename}": {
+      "get": {
+        "operationId": "Storage_GetObjectURL",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/GetObjectURLResponse"
+            }
+          },
+          "error": {
+            "description": "System or user error",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "bucket",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "enum": [
+              "APPS",
+              "RECORDINGS",
+              "PUBLIC",
+              "FUNCS"
+            ]
+          },
+          {
+            "name": "filename",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "accessKeyId",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Storage"
+        ]
+      }
+    },
     "/v1beta1/users": {
       "post": {
         "summary": "Creates a new User resource",
@@ -214,6 +1673,320 @@
     }
   },
   "definitions": {
+    "Agent": {
+      "type": "object",
+      "example": {
+        "ref": "aynB1z0tzd",
+        "name": "John Doe",
+        "username": "1001",
+        "secret": "1234",
+        "domains": "['sip.fonoster.com']",
+        "privacy": "none",
+        "createTime": "2021-10-05T13:23:07.221Z",
+        "updateTime": "2021-10-05T13:23:07.221Z"
+      },
+      "properties": {
+        "ref": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string",
+          "required": [
+            "name"
+          ]
+        },
+        "username": {
+          "type": "string",
+          "required": [
+            "username"
+          ]
+        },
+        "secret": {
+          "type": "string",
+          "required": [
+            "secret"
+          ]
+        },
+        "domains": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "required": [
+            "domains"
+          ]
+        },
+        "privacy": {
+          "type": "string"
+        },
+        "createTime": {
+          "type": "string",
+          "readOnly": true
+        },
+        "updateTime": {
+          "type": "string",
+          "readOnly": true
+        }
+      },
+      "required": [
+        "name",
+        "username",
+        "secret",
+        "domains"
+      ]
+    },
+    "CallRequest": {
+      "type": "object",
+      "example": {
+        "from": "+17853178070",
+        "to": "+17852268080",
+        "webhook": "https://c5b6-172-220-243-215.ngrok.io"
+      },
+      "properties": {
+        "from": {
+          "type": "string",
+          "title": "Origination number"
+        },
+        "to": {
+          "type": "string",
+          "title": "Destination number"
+        },
+        "webhook": {
+          "type": "string",
+          "title": "Optional webhook"
+        },
+        "ignoreE164Validation": {
+          "type": "boolean",
+          "title": "If enabled it will accept any input in the from and to"
+        },
+        "metadata": {
+          "type": "string",
+          "title": "Optional metadata for voice applications"
+        }
+      }
+    },
+    "CallResponse": {
+      "type": "object",
+      "properties": {
+        "ref": {
+          "type": "string"
+        }
+      }
+    },
+    "CreateAgentRequest": {
+      "type": "object",
+      "example": {
+        "name": "John Doe",
+        "username": "1001",
+        "secret": "1234",
+        "domains": "['sip.fonoster.com']",
+        "privacy": "none"
+      },
+      "properties": {
+        "name": {
+          "type": "string",
+          "required": [
+            "name"
+          ]
+        },
+        "username": {
+          "type": "string",
+          "required": [
+            "username"
+          ]
+        },
+        "secret": {
+          "type": "string",
+          "required": [
+            "secret"
+          ]
+        },
+        "domains": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "required": [
+            "domains"
+          ]
+        },
+        "privacy": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "username",
+        "secret",
+        "domains"
+      ]
+    },
+    "CreateDomainRequest": {
+      "type": "object",
+      "example": {
+        "name": "Acme Corp",
+        "domainUri": "sip.acme.com",
+        "egressRule": ".*",
+        "egressNumberRef": "1yyB170ozd"
+      },
+      "properties": {
+        "name": {
+          "type": "string",
+          "required": [
+            "name"
+          ]
+        },
+        "domainUri": {
+          "type": "string",
+          "required": [
+            "domain_uri"
+          ]
+        },
+        "egressRule": {
+          "type": "string"
+        },
+        "egressNumberRef": {
+          "type": "string"
+        },
+        "accessDeny": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "accessAllow": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "name",
+        "domainUri"
+      ]
+    },
+    "CreateNumberRequest": {
+      "type": "object",
+      "example": {
+        "providerRef": "aynB1z0tzd",
+        "e164Number": "+17853178070",
+        "ingressInfo": {
+          "webhook": "https://c5b6-172-220-243-215.ngrok.io"
+        }
+      },
+      "properties": {
+        "number": {
+          "$ref": "#/definitions/Number"
+        }
+      }
+    },
+    "CreateProjectRequest": {
+      "type": "object",
+      "example": {
+        "name": "Acme Corp"
+      },
+      "properties": {
+        "name": {
+          "type": "string",
+          "required": [
+            "name"
+          ]
+        },
+        "allowExperiments": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "name"
+      ]
+    },
+    "CreateProviderRequest": {
+      "type": "object",
+      "example": {
+        "name": "VoIP.ms",
+        "username": "200122",
+        "secret": "TerD$$sd01",
+        "host": "newyork1.voip.ms",
+        "transport": "tcp",
+        "expires": 300
+      },
+      "properties": {
+        "provider": {
+          "$ref": "#/definitions/Provider"
+        }
+      }
+    },
+    "CreateRegistryTokenResponse": {
+      "type": "object",
+      "properties": {
+        "token": {
+          "type": "string"
+        },
+        "image": {
+          "type": "string"
+        }
+      }
+    },
+    "CreateSecretRequest": {
+      "type": "object",
+      "example": {
+        "name": "mydbsecret",
+        "secret": "s3cr3t"
+      },
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "secret": {
+          "type": "string"
+        }
+      }
+    },
+    "CreateSecretResponse": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        }
+      }
+    },
+    "CreateTokenRequest": {
+      "type": "object",
+      "example": {
+        "roleName": "USER",
+        "accessKeyId": "4e9f2cdf4387"
+      },
+      "properties": {
+        "roleName": {
+          "type": "string",
+          "required": [
+            "role_name"
+          ]
+        },
+        "accessKeyId": {
+          "type": "string",
+          "required": [
+            "access_key_id"
+          ]
+        },
+        "expiration": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "roleName",
+        "accessKeyId"
+      ]
+    },
+    "CreateTokenResponse": {
+      "type": "object",
+      "properties": {
+        "token": {
+          "type": "string"
+        }
+      }
+    },
     "CreateUserCredentialsRequest": {
       "type": "object",
       "example": {
@@ -286,6 +2059,73 @@
         "secret"
       ]
     },
+    "DeployStream": {
+      "type": "object",
+      "properties": {
+        "text": {
+          "type": "string"
+        }
+      }
+    },
+    "Domain": {
+      "type": "object",
+      "example": {
+        "ref": "tyyB1z0tgj",
+        "name": "Acme Corp",
+        "domainUri": "sip.acme.com",
+        "egressRule": ".*",
+        "egressNumberRef": "1yyB170ozd",
+        "createTime": "2021-10-05T13:23:07.221Z",
+        "updateTime": "2021-10-05T13:23:07.221Z"
+      },
+      "properties": {
+        "ref": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string",
+          "required": [
+            "name"
+          ]
+        },
+        "domainUri": {
+          "type": "string",
+          "required": [
+            "domain_uri"
+          ]
+        },
+        "egressRule": {
+          "type": "string"
+        },
+        "egressNumberRef": {
+          "type": "string"
+        },
+        "accessDeny": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "accessAllow": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "createTime": {
+          "type": "string",
+          "readOnly": true
+        },
+        "updateTime": {
+          "type": "string",
+          "readOnly": true
+        }
+      },
+      "required": [
+        "name",
+        "domainUri"
+      ]
+    },
     "Empty": {
       "type": "object"
     },
@@ -302,6 +2142,487 @@
         },
         "message": {
           "type": "string"
+        }
+      }
+    },
+    "Func": {
+      "type": "object",
+      "example": {
+        "name": "testfunc",
+        "image": "functions/nodeinfo:latest",
+        "invocationCount": 20,
+        "replicas": 1,
+        "availableReplicas": 1,
+        "limit": {
+          "memory": "128M",
+          "cpu": "0.01"
+        },
+        "requests": {
+          "memory": "128M",
+          "cpu": "0.01"
+        }
+      },
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "image": {
+          "type": "string"
+        },
+        "invocationCount": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "replicas": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "availableReplicas": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "limits": {
+          "$ref": "#/definitions/Resource"
+        },
+        "requests": {
+          "$ref": "#/definitions/Resource"
+        },
+        "schedule": {
+          "type": "string"
+        }
+      }
+    },
+    "FuncLog": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "instance": {
+          "type": "string"
+        },
+        "timestamp": {
+          "type": "string"
+        },
+        "text": {
+          "type": "string"
+        }
+      }
+    },
+    "GetObjectURLRequest.Bucket": {
+      "type": "string",
+      "enum": [
+        "APPS",
+        "RECORDINGS",
+        "PUBLIC",
+        "FUNCS"
+      ],
+      "default": "APPS"
+    },
+    "GetObjectURLResponse": {
+      "type": "object",
+      "properties": {
+        "url": {
+          "type": "string"
+        }
+      }
+    },
+    "GetSecretResponse": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "secret": {
+          "type": "string"
+        }
+      }
+    },
+    "IngressInfo": {
+      "type": "object",
+      "properties": {
+        "accessKeyId": {
+          "type": "string"
+        },
+        "webhook": {
+          "type": "string"
+        }
+      }
+    },
+    "ListAgentsResponse": {
+      "type": "object",
+      "properties": {
+        "agents": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Agent"
+          },
+          "title": "List of Agents"
+        },
+        "nextPageToken": {
+          "type": "string",
+          "title": "Token to retrieve the next page of results, or empty if there are no more results in the list"
+        }
+      }
+    },
+    "ListDomainsResponse": {
+      "type": "object",
+      "properties": {
+        "domains": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Domain"
+          },
+          "title": "List of Domains"
+        },
+        "nextPageToken": {
+          "type": "string",
+          "title": "Token to retrieve the next page of results, or empty if there are no more results in the list"
+        }
+      }
+    },
+    "ListFuncsResponse": {
+      "type": "object",
+      "properties": {
+        "funcs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Func"
+          },
+          "title": "List of Functions"
+        },
+        "nextPageToken": {
+          "type": "string",
+          "title": "Token to retrieve the next page of results, or empty if there are no more results in the list"
+        }
+      }
+    },
+    "ListNumbersResponse": {
+      "type": "object",
+      "properties": {
+        "numbers": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Number"
+          },
+          "title": "List of Numbers"
+        },
+        "nextPageToken": {
+          "type": "string",
+          "description": "Token to retrieve the next page of results, or empty if there are no more results in the list."
+        }
+      }
+    },
+    "ListProjectsResponse": {
+      "type": "object",
+      "properties": {
+        "projects": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Project"
+          }
+        }
+      }
+    },
+    "ListProvidersResponse": {
+      "type": "object",
+      "properties": {
+        "providers": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Provider"
+          },
+          "title": "List of Providers"
+        },
+        "nextPageToken": {
+          "type": "string",
+          "title": "Token to retrieve the next page of results, or empty if there are no more results in the list"
+        }
+      }
+    },
+    "ListSecretIdResponse": {
+      "type": "object",
+      "properties": {
+        "secrets": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/SecretName"
+          },
+          "title": "List of Secrets"
+        },
+        "nextPageToken": {
+          "type": "string",
+          "title": "Token to retrieve the next page of results, or empty if there are no more results in the list"
+        }
+      }
+    },
+    "Number": {
+      "type": "object",
+      "example": {
+        "ref": "aiuY1z0tzd",
+        "providerRef": "aynB1z0tzd",
+        "e164Number": "+17853178070",
+        "ingressInfo": {
+          "webhook": "https://c5b6-172-220-243-215.ngrok.io"
+        },
+        "createTime": "2021-10-05T13:23:07.221Z",
+        "updateTime": "2021-10-05T13:23:07.221Z"
+      },
+      "properties": {
+        "ref": {
+          "type": "string"
+        },
+        "providerRef": {
+          "type": "string",
+          "required": [
+            "provider_ref"
+          ]
+        },
+        "e164Number": {
+          "type": "string",
+          "required": [
+            "e164_number"
+          ]
+        },
+        "aorLink": {
+          "type": "string"
+        },
+        "ingressInfo": {
+          "$ref": "#/definitions/IngressInfo"
+        },
+        "createTime": {
+          "type": "string",
+          "readOnly": true
+        },
+        "updateTime": {
+          "type": "string",
+          "readOnly": true
+        }
+      },
+      "required": [
+        "providerRef",
+        "e164Number"
+      ]
+    },
+    "Project": {
+      "type": "object",
+      "example": {
+        "ref": "507f191e810c19729de860ea",
+        "userRef": "057d191e810c19563de45767",
+        "name": "Acme Main",
+        "accessKeyId": "507f191e810c19729de860ea",
+        "accessKeySecret": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
+        "allowExperiments": false,
+        "createTime": "2021-10-05T13:23:07.221Z",
+        "updateTime": "2021-10-05T13:23:07.221Z"
+      },
+      "properties": {
+        "name": {
+          "type": "string",
+          "required": [
+            "name"
+          ]
+        },
+        "ref": {
+          "type": "string",
+          "required": [
+            "ref"
+          ]
+        },
+        "userRef": {
+          "type": "string",
+          "required": [
+            "user_ref"
+          ]
+        },
+        "accessKeyId": {
+          "type": "string",
+          "required": [
+            "access_key_id"
+          ]
+        },
+        "accessKeySecret": {
+          "type": "string",
+          "required": [
+            "access_key_secret"
+          ]
+        },
+        "allowExperiments": {
+          "type": "boolean"
+        },
+        "createTime": {
+          "type": "string",
+          "readOnly": true
+        },
+        "updateTime": {
+          "type": "string",
+          "readOnly": true
+        }
+      },
+      "required": [
+        "name",
+        "ref",
+        "userRef",
+        "accessKeyId",
+        "accessKeySecret"
+      ]
+    },
+    "Provider": {
+      "type": "object",
+      "example": {
+        "ref": "ghnH1z0tzd",
+        "name": "VoIP.ms",
+        "username": "200122",
+        "secret": "TerD$$sd01",
+        "host": "newyork1.voip.ms",
+        "transport": "tcp",
+        "expires": 300,
+        "createTime": "2021-10-05T13:23:07.221Z",
+        "updateTime": "2021-10-05T13:23:07.221Z"
+      },
+      "properties": {
+        "ref": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string",
+          "required": [
+            "name"
+          ]
+        },
+        "username": {
+          "type": "string",
+          "required": [
+            "username"
+          ]
+        },
+        "secret": {
+          "type": "string",
+          "required": [
+            "secret"
+          ]
+        },
+        "host": {
+          "type": "string",
+          "required": [
+            "host"
+          ]
+        },
+        "transport": {
+          "type": "string",
+          "required": [
+            "transport"
+          ]
+        },
+        "expires": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "createTime": {
+          "type": "string",
+          "readOnly": true
+        },
+        "updateTime": {
+          "type": "string",
+          "readOnly": true
+        }
+      },
+      "required": [
+        "name",
+        "username",
+        "secret",
+        "host",
+        "transport"
+      ]
+    },
+    "RenewAccessKeySecretResponse": {
+      "type": "object",
+      "properties": {
+        "accessKeySecret": {
+          "type": "string"
+        }
+      }
+    },
+    "Resource": {
+      "type": "object",
+      "properties": {
+        "memory": {
+          "type": "string"
+        },
+        "cpu": {
+          "type": "string"
+        }
+      }
+    },
+    "Role": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "access": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "SecretName": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        }
+      }
+    },
+    "UpdateNumberRequest": {
+      "type": "object",
+      "example": {
+        "ref": "aiuY1z0tzd",
+        "ingressInfo": {
+          "webhook": "https://c5b6-172-220-243-215.ngrok.io"
+        }
+      },
+      "properties": {
+        "number": {
+          "$ref": "#/definitions/Number"
+        }
+      }
+    },
+    "UpdateProviderRequest": {
+      "type": "object",
+      "example": {
+        "ref": "ghnH1z0tzd",
+        "username": "200122",
+        "secret": "TerD$$sd01"
+      },
+      "properties": {
+        "provider": {
+          "$ref": "#/definitions/Provider"
+        }
+      }
+    },
+    "UploadObjectRequest.Bucket": {
+      "type": "string",
+      "enum": [
+        "APPS",
+        "RECORDINGS",
+        "PUBLIC",
+        "FUNCS"
+      ],
+      "default": "APPS"
+    },
+    "UploadObjectResponse": {
+      "type": "object",
+      "properties": {
+        "size": {
+          "type": "integer",
+          "format": "int32",
+          "title": "File size in bytes"
         }
       }
     },
@@ -359,6 +2680,23 @@
         "email",
         "name"
       ]
+    },
+    "ValidateTokenResponse": {
+      "type": "object",
+      "properties": {
+        "valid": {
+          "type": "boolean"
+        }
+      }
+    },
+    "View": {
+      "type": "string",
+      "enum": [
+        "BASIC",
+        "STANDARD",
+        "FULL"
+      ],
+      "default": "BASIC"
     }
   },
   "securityDefinitions": {

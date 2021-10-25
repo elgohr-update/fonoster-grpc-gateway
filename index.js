@@ -218,8 +218,11 @@ const convertBody = (value, bodyMap) => {
       status = 409
       break      
     case 5:
-        status = 404
-        break   
+      status = 404
+      break   
+    case 9:
+      status = 400
+      break    
     case 3:
       status = 400
       break      
