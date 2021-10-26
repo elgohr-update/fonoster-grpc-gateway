@@ -50,8 +50,8 @@
   ],
   "basePath": "/api",
   "schemes": [
-    "https",
-    "http"
+    "http",
+    "https"
   ],
   "consumes": [
     "application/json"
@@ -71,10 +71,10 @@
               "$ref": "#/definitions/ListAgentsResponse"
             }
           },
-          "error": {
-            "description": "System or user error",
+          "default": {
+            "description": "User or system error.",
             "schema": {
-              "$ref": "#/definitions/Error"
+              "$ref": "#/definitions/ErrorResponse"
             }
           }
         },
@@ -122,10 +122,10 @@
               "$ref": "#/definitions/Agent"
             }
           },
-          "error": {
-            "description": "System or user error",
+          "default": {
+            "description": "User or system error.",
             "schema": {
-              "$ref": "#/definitions/Error"
+              "$ref": "#/definitions/ErrorResponse"
             }
           }
         },
@@ -155,16 +155,17 @@
               "$ref": "#/definitions/Agent"
             }
           },
-          "error": {
-            "description": "System or user error",
+          "default": {
+            "description": "User or system error.",
             "schema": {
-              "$ref": "#/definitions/Error"
+              "$ref": "#/definitions/ErrorResponse"
             }
           }
         },
         "parameters": [
           {
             "name": "ref",
+            "description": "Agent's reference",
             "in": "path",
             "required": true,
             "type": "string"
@@ -184,16 +185,17 @@
               "$ref": "#/definitions/Empty"
             }
           },
-          "error": {
-            "description": "System or user error",
+          "default": {
+            "description": "User or system error.",
             "schema": {
-              "$ref": "#/definitions/Error"
+              "$ref": "#/definitions/ErrorResponse"
             }
           }
         },
         "parameters": [
           {
             "name": "ref",
+            "description": "Agent's reference",
             "in": "path",
             "required": true,
             "type": "string"
@@ -213,16 +215,17 @@
               "$ref": "#/definitions/Agent"
             }
           },
-          "error": {
-            "description": "System or user error",
+          "default": {
+            "description": "User or system error.",
             "schema": {
-              "$ref": "#/definitions/Error"
+              "$ref": "#/definitions/ErrorResponse"
             }
           }
         },
         "parameters": [
           {
             "name": "ref",
+            "description": "Agent's reference",
             "in": "path",
             "required": true,
             "type": "string"
@@ -276,10 +279,10 @@
               "$ref": "#/definitions/Role"
             }
           },
-          "error": {
-            "description": "System or user error",
+          "default": {
+            "description": "User or system error.",
             "schema": {
-              "$ref": "#/definitions/Error"
+              "$ref": "#/definitions/ErrorResponse"
             }
           }
         },
@@ -307,10 +310,10 @@
               "$ref": "#/definitions/CreateTokenResponse"
             }
           },
-          "error": {
-            "description": "System or user error",
+          "default": {
+            "description": "User or system error.",
             "schema": {
-              "$ref": "#/definitions/Error"
+              "$ref": "#/definitions/ErrorResponse"
             }
           }
         },
@@ -340,10 +343,10 @@
               "$ref": "#/definitions/ValidateTokenResponse"
             }
           },
-          "error": {
-            "description": "System or user error",
+          "default": {
+            "description": "User or system error.",
             "schema": {
-              "$ref": "#/definitions/Error"
+              "$ref": "#/definitions/ErrorResponse"
             }
           }
         },
@@ -371,10 +374,10 @@
               "$ref": "#/definitions/CallResponse"
             }
           },
-          "error": {
-            "description": "System or user error",
+          "default": {
+            "description": "User or system error.",
             "schema": {
-              "$ref": "#/definitions/Error"
+              "$ref": "#/definitions/ErrorResponse"
             }
           }
         },
@@ -404,10 +407,10 @@
               "$ref": "#/definitions/Domain"
             }
           },
-          "error": {
-            "description": "System or user error",
+          "default": {
+            "description": "User or system error.",
             "schema": {
-              "$ref": "#/definitions/Error"
+              "$ref": "#/definitions/ErrorResponse"
             }
           }
         },
@@ -437,16 +440,17 @@
               "$ref": "#/definitions/Domain"
             }
           },
-          "error": {
-            "description": "System or user error",
+          "default": {
+            "description": "User or system error.",
             "schema": {
-              "$ref": "#/definitions/Error"
+              "$ref": "#/definitions/ErrorResponse"
             }
           }
         },
         "parameters": [
           {
             "name": "ref",
+            "description": "Domain's reference",
             "in": "path",
             "required": true,
             "type": "string"
@@ -466,16 +470,17 @@
               "$ref": "#/definitions/Empty"
             }
           },
-          "error": {
-            "description": "System or user error",
+          "default": {
+            "description": "User or system error.",
             "schema": {
-              "$ref": "#/definitions/Error"
+              "$ref": "#/definitions/ErrorResponse"
             }
           }
         },
         "parameters": [
           {
             "name": "ref",
+            "description": "Domain's reference",
             "in": "path",
             "required": true,
             "type": "string"
@@ -495,16 +500,17 @@
               "$ref": "#/definitions/Domain"
             }
           },
-          "error": {
-            "description": "System or user error",
+          "default": {
+            "description": "User or system error.",
             "schema": {
-              "$ref": "#/definitions/Error"
+              "$ref": "#/definitions/ErrorResponse"
             }
           }
         },
         "parameters": [
           {
             "name": "ref",
+            "description": "Domain's reference",
             "in": "path",
             "required": true,
             "type": "string"
@@ -516,8 +522,7 @@
             "schema": {
               "type": "object",
               "example": {
-                "egressNumberRef": "1yyB170ozd",
-                "egressRule": ".*"
+                "egressNumberRef": "1yyB170ozd"
               },
               "properties": {
                 "name": {
@@ -561,10 +566,10 @@
               "$ref": "#/definitions/ListFuncsResponse"
             }
           },
-          "error": {
-            "description": "System or user error",
+          "default": {
+            "description": "User or system error.",
             "schema": {
-              "$ref": "#/definitions/Error"
+              "$ref": "#/definitions/ErrorResponse"
             }
           }
         },
@@ -605,7 +610,7 @@
     },
     "/v1beta1/funcs/{name}": {
       "get": {
-        "summary": "Gets a function by namem",
+        "summary": "Gets a function by name",
         "operationId": "Funcs_GetFunc",
         "responses": {
           "200": {
@@ -614,10 +619,10 @@
               "$ref": "#/definitions/Func"
             }
           },
-          "error": {
-            "description": "System or user error",
+          "default": {
+            "description": "User or system error.",
             "schema": {
-              "$ref": "#/definitions/Error"
+              "$ref": "#/definitions/ErrorResponse"
             }
           }
         },
@@ -656,10 +661,10 @@
               "$ref": "#/definitions/Empty"
             }
           },
-          "error": {
-            "description": "System or user error",
+          "default": {
+            "description": "User or system error.",
             "schema": {
-              "$ref": "#/definitions/Error"
+              "$ref": "#/definitions/ErrorResponse"
             }
           }
         },
@@ -682,24 +687,15 @@
         "operationId": "Funcs_GetFuncLogs",
         "responses": {
           "200": {
-            "description": "A successful response.(streaming responses)",
+            "description": "Stream of logs",
             "schema": {
-              "type": "object",
-              "properties": {
-                "result": {
-                  "$ref": "#/definitions/FuncLog"
-                },
-                "error": {
-                  "$ref": "#/definitions/Status"
-                }
-              },
-              "title": "Stream result of FuncLog"
+              "$ref": "#/definitions/FuncLog"
             }
           },
-          "error": {
-            "description": "System or user error",
+          "default": {
+            "description": "User or system error.",
             "schema": {
-              "$ref": "#/definitions/Error"
+              "$ref": "#/definitions/ErrorResponse"
             }
           }
         },
@@ -747,10 +743,10 @@
               "$ref": "#/definitions/ListNumbersResponse"
             }
           },
-          "error": {
-            "description": "System or user error",
+          "default": {
+            "description": "User or system error.",
             "schema": {
-              "$ref": "#/definitions/Error"
+              "$ref": "#/definitions/ErrorResponse"
             }
           }
         },
@@ -798,10 +794,10 @@
               "$ref": "#/definitions/Number"
             }
           },
-          "error": {
-            "description": "System or user error",
+          "default": {
+            "description": "User or system error.",
             "schema": {
-              "$ref": "#/definitions/Error"
+              "$ref": "#/definitions/ErrorResponse"
             }
           }
         },
@@ -812,37 +808,6 @@
             "required": true,
             "schema": {
               "$ref": "#/definitions/CreateNumberRequest"
-            }
-          }
-        ],
-        "tags": [
-          "Numbers"
-        ]
-      },
-      "put": {
-        "summary": "Change or update fields in a resource",
-        "operationId": "Numbers_UpdateNumber",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/Number"
-            }
-          },
-          "error": {
-            "description": "System or user error",
-            "schema": {
-              "$ref": "#/definitions/Error"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/UpdateNumberRequest"
             }
           }
         ],
@@ -862,16 +827,17 @@
               "$ref": "#/definitions/Number"
             }
           },
-          "error": {
-            "description": "System or user error",
+          "default": {
+            "description": "User or system error.",
             "schema": {
-              "$ref": "#/definitions/Error"
+              "$ref": "#/definitions/ErrorResponse"
             }
           }
         },
         "parameters": [
           {
             "name": "ref",
+            "description": "Number's reference",
             "in": "path",
             "required": true,
             "type": "string"
@@ -891,19 +857,71 @@
               "$ref": "#/definitions/Empty"
             }
           },
-          "error": {
-            "description": "System or user error",
+          "default": {
+            "description": "User or system error.",
             "schema": {
-              "$ref": "#/definitions/Error"
+              "$ref": "#/definitions/ErrorResponse"
             }
           }
         },
         "parameters": [
           {
             "name": "ref",
+            "description": "Number's reference",
             "in": "path",
             "required": true,
             "type": "string"
+          }
+        ],
+        "tags": [
+          "Numbers"
+        ]
+      },
+      "put": {
+        "summary": "Change or update fields in a resource",
+        "operationId": "Numbers_UpdateNumber",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/Number"
+            }
+          },
+          "default": {
+            "description": "User or system error.",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "ref",
+            "description": "Number's reference",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "example": {
+                "ingressInfo": {
+                  "webhook": "https://c5b6-172-220-243-215.ngrok.io"
+                }
+              },
+              "properties": {
+                "aorLink": {
+                  "type": "string"
+                },
+                "ingressInfo": {
+                  "$ref": "#/definitions/IngressInfo"
+                }
+              }
+            }
           }
         ],
         "tags": [
@@ -922,10 +940,10 @@
               "$ref": "#/definitions/ListProjectsResponse"
             }
           },
-          "error": {
-            "description": "System or user error",
+          "default": {
+            "description": "User or system error.",
             "schema": {
-              "$ref": "#/definitions/Error"
+              "$ref": "#/definitions/ErrorResponse"
             }
           }
         },
@@ -943,10 +961,10 @@
               "$ref": "#/definitions/Project"
             }
           },
-          "error": {
-            "description": "System or user error",
+          "default": {
+            "description": "User or system error.",
             "schema": {
-              "$ref": "#/definitions/Error"
+              "$ref": "#/definitions/ErrorResponse"
             }
           }
         },
@@ -976,16 +994,17 @@
               "$ref": "#/definitions/Project"
             }
           },
-          "error": {
-            "description": "System or user error",
+          "default": {
+            "description": "User or system error.",
             "schema": {
-              "$ref": "#/definitions/Error"
+              "$ref": "#/definitions/ErrorResponse"
             }
           }
         },
         "parameters": [
           {
             "name": "ref",
+            "description": "Project's reference",
             "in": "path",
             "required": true,
             "type": "string"
@@ -1005,16 +1024,17 @@
               "$ref": "#/definitions/Empty"
             }
           },
-          "error": {
-            "description": "System or user error",
+          "default": {
+            "description": "User or system error.",
             "schema": {
-              "$ref": "#/definitions/Error"
+              "$ref": "#/definitions/ErrorResponse"
             }
           }
         },
         "parameters": [
           {
             "name": "ref",
+            "description": "Project's reference",
             "in": "path",
             "required": true,
             "type": "string"
@@ -1034,16 +1054,17 @@
               "$ref": "#/definitions/Project"
             }
           },
-          "error": {
-            "description": "System or user error",
+          "default": {
+            "description": "User or system error.",
             "schema": {
-              "$ref": "#/definitions/Error"
+              "$ref": "#/definitions/ErrorResponse"
             }
           }
         },
         "parameters": [
           {
             "name": "ref",
+            "description": "Project's reference",
             "in": "path",
             "required": true,
             "type": "string"
@@ -1091,16 +1112,17 @@
               "$ref": "#/definitions/RenewAccessKeySecretResponse"
             }
           },
-          "error": {
-            "description": "System or user error",
+          "default": {
+            "description": "User or system error.",
             "schema": {
-              "$ref": "#/definitions/Error"
+              "$ref": "#/definitions/ErrorResponse"
             }
           }
         },
         "parameters": [
           {
             "name": "ref",
+            "description": "Project's reference",
             "in": "path",
             "required": true,
             "type": "string"
@@ -1122,10 +1144,10 @@
               "$ref": "#/definitions/ListProvidersResponse"
             }
           },
-          "error": {
-            "description": "System or user error",
+          "default": {
+            "description": "User or system error.",
             "schema": {
-              "$ref": "#/definitions/Error"
+              "$ref": "#/definitions/ErrorResponse"
             }
           }
         },
@@ -1173,10 +1195,10 @@
               "$ref": "#/definitions/Provider"
             }
           },
-          "error": {
-            "description": "System or user error",
+          "default": {
+            "description": "User or system error.",
             "schema": {
-              "$ref": "#/definitions/Error"
+              "$ref": "#/definitions/ErrorResponse"
             }
           }
         },
@@ -1187,37 +1209,6 @@
             "required": true,
             "schema": {
               "$ref": "#/definitions/CreateProviderRequest"
-            }
-          }
-        ],
-        "tags": [
-          "Providers"
-        ]
-      },
-      "put": {
-        "summary": "Change or update fields in a resource",
-        "operationId": "Providers_UpdateProvider",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/Provider"
-            }
-          },
-          "error": {
-            "description": "System or user error",
-            "schema": {
-              "$ref": "#/definitions/Error"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/UpdateProviderRequest"
             }
           }
         ],
@@ -1237,16 +1228,17 @@
               "$ref": "#/definitions/Provider"
             }
           },
-          "error": {
-            "description": "System or user error",
+          "default": {
+            "description": "User or system error.",
             "schema": {
-              "$ref": "#/definitions/Error"
+              "$ref": "#/definitions/ErrorResponse"
             }
           }
         },
         "parameters": [
           {
             "name": "ref",
+            "description": "Provider's reference",
             "in": "path",
             "required": true,
             "type": "string"
@@ -1266,19 +1258,105 @@
               "$ref": "#/definitions/Empty"
             }
           },
-          "error": {
-            "description": "System or user error",
+          "default": {
+            "description": "User or system error.",
             "schema": {
-              "$ref": "#/definitions/Error"
+              "$ref": "#/definitions/ErrorResponse"
             }
           }
         },
         "parameters": [
           {
             "name": "ref",
+            "description": "Provider's reference",
             "in": "path",
             "required": true,
             "type": "string"
+          }
+        ],
+        "tags": [
+          "Providers"
+        ]
+      },
+      "put": {
+        "summary": "Change or update fields in a resource",
+        "operationId": "Providers_UpdateProvider",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/Provider"
+            }
+          },
+          "default": {
+            "description": "User or system error.",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "ref",
+            "description": "Provider's reference",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "example": {
+                "username": "200122",
+                "secret": "TerD$$sd01"
+              },
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "required": [
+                    "name"
+                  ]
+                },
+                "username": {
+                  "type": "string",
+                  "required": [
+                    "username"
+                  ]
+                },
+                "secret": {
+                  "type": "string",
+                  "required": [
+                    "secret"
+                  ]
+                },
+                "host": {
+                  "type": "string",
+                  "required": [
+                    "host"
+                  ]
+                },
+                "transport": {
+                  "type": "string",
+                  "required": [
+                    "transport"
+                  ]
+                },
+                "expires": {
+                  "type": "integer",
+                  "format": "int32"
+                }
+              },
+              "required": [
+                "name",
+                "username",
+                "secret",
+                "host",
+                "transport"
+              ]
+            }
           }
         ],
         "tags": [
@@ -1297,10 +1375,10 @@
               "$ref": "#/definitions/ListSecretIdResponse"
             }
           },
-          "error": {
-            "description": "System or user error",
+          "default": {
+            "description": "User or system error.",
             "schema": {
-              "$ref": "#/definitions/Error"
+              "$ref": "#/definitions/ErrorResponse"
             }
           }
         },
@@ -1347,10 +1425,10 @@
               "$ref": "#/definitions/CreateSecretResponse"
             }
           },
-          "error": {
-            "description": "System or user error",
+          "default": {
+            "description": "User or system error.",
             "schema": {
-              "$ref": "#/definitions/Error"
+              "$ref": "#/definitions/ErrorResponse"
             }
           }
         },
@@ -1380,10 +1458,10 @@
               "$ref": "#/definitions/GetSecretResponse"
             }
           },
-          "error": {
-            "description": "System or user error",
+          "default": {
+            "description": "User or system error.",
             "schema": {
-              "$ref": "#/definitions/Error"
+              "$ref": "#/definitions/ErrorResponse"
             }
           }
         },
@@ -1421,10 +1499,10 @@
               "$ref": "#/definitions/Empty"
             }
           },
-          "error": {
-            "description": "System or user error",
+          "default": {
+            "description": "User or system error.",
             "schema": {
-              "$ref": "#/definitions/Error"
+              "$ref": "#/definitions/ErrorResponse"
             }
           }
         },
@@ -1451,10 +1529,10 @@
               "$ref": "#/definitions/GetObjectURLResponse"
             }
           },
-          "error": {
-            "description": "System or user error",
+          "default": {
+            "description": "User or system error.",
             "schema": {
-              "$ref": "#/definitions/Error"
+              "$ref": "#/definitions/ErrorResponse"
             }
           }
         },
@@ -1500,10 +1578,10 @@
               "$ref": "#/definitions/User"
             }
           },
-          "error": {
-            "description": "System or user error",
+          "default": {
+            "description": "User or system error.",
             "schema": {
-              "$ref": "#/definitions/Error"
+              "$ref": "#/definitions/ErrorResponse"
             }
           }
         },
@@ -1533,10 +1611,10 @@
               "$ref": "#/definitions/CreateUserCredentialsResponse"
             }
           },
-          "error": {
-            "description": "System or user error",
+          "default": {
+            "description": "User or system error.",
             "schema": {
-              "$ref": "#/definitions/Error"
+              "$ref": "#/definitions/ErrorResponse"
             }
           }
         },
@@ -1566,17 +1644,17 @@
               "$ref": "#/definitions/User"
             }
           },
-          "error": {
-            "description": "System or user error",
+          "default": {
+            "description": "User or system error.",
             "schema": {
-              "$ref": "#/definitions/Error"
+              "$ref": "#/definitions/ErrorResponse"
             }
           }
         },
         "parameters": [
           {
             "name": "ref",
-            "description": "User reference",
+            "description": "User's reference",
             "in": "path",
             "required": true,
             "type": "string"
@@ -1596,17 +1674,17 @@
               "$ref": "#/definitions/Empty"
             }
           },
-          "error": {
-            "description": "System or user error",
+          "default": {
+            "description": "User or system error.",
             "schema": {
-              "$ref": "#/definitions/Error"
+              "$ref": "#/definitions/ErrorResponse"
             }
           }
         },
         "parameters": [
           {
             "name": "ref",
-            "description": "User reference",
+            "description": "User's reference",
             "in": "path",
             "required": true,
             "type": "string"
@@ -1626,17 +1704,17 @@
               "$ref": "#/definitions/User"
             }
           },
-          "error": {
-            "description": "System or user error",
+          "default": {
+            "description": "User or system error.",
             "schema": {
-              "$ref": "#/definitions/Error"
+              "$ref": "#/definitions/ErrorResponse"
             }
           }
         },
         "parameters": [
           {
             "name": "ref",
-            "description": "User reference",
+            "description": "User's reference",
             "in": "path",
             "required": true,
             "type": "string"
@@ -1687,7 +1765,8 @@
       },
       "properties": {
         "ref": {
-          "type": "string"
+          "type": "string",
+          "title": "Agent's reference"
         },
         "name": {
           "type": "string",
@@ -1769,7 +1848,8 @@
       "type": "object",
       "properties": {
         "ref": {
-          "type": "string"
+          "type": "string",
+          "title": "Call's reference"
         }
       }
     },
@@ -1876,10 +1956,29 @@
         }
       },
       "properties": {
-        "number": {
-          "$ref": "#/definitions/Number"
+        "providerRef": {
+          "type": "string",
+          "required": [
+            "provider_ref"
+          ]
+        },
+        "e164Number": {
+          "type": "string",
+          "required": [
+            "e164_number"
+          ]
+        },
+        "aorLink": {
+          "type": "string"
+        },
+        "ingressInfo": {
+          "$ref": "#/definitions/IngressInfo"
         }
-      }
+      },
+      "required": [
+        "providerRef",
+        "e164Number"
+      ]
     },
     "CreateProjectRequest": {
       "type": "object",
@@ -1912,10 +2011,48 @@
         "expires": 300
       },
       "properties": {
-        "provider": {
-          "$ref": "#/definitions/Provider"
+        "name": {
+          "type": "string",
+          "required": [
+            "name"
+          ]
+        },
+        "username": {
+          "type": "string",
+          "required": [
+            "username"
+          ]
+        },
+        "secret": {
+          "type": "string",
+          "required": [
+            "secret"
+          ]
+        },
+        "host": {
+          "type": "string",
+          "required": [
+            "host"
+          ]
+        },
+        "transport": {
+          "type": "string",
+          "required": [
+            "transport"
+          ]
+        },
+        "expires": {
+          "type": "integer",
+          "format": "int32"
         }
-      }
+      },
+      "required": [
+        "name",
+        "username",
+        "secret",
+        "host",
+        "transport"
+      ]
     },
     "CreateRegistryTokenResponse": {
       "type": "object",
@@ -2080,7 +2217,8 @@
       },
       "properties": {
         "ref": {
-          "type": "string"
+          "type": "string",
+          "title": "Domain's reference"
         },
         "name": {
           "type": "string",
@@ -2129,7 +2267,7 @@
     "Empty": {
       "type": "object"
     },
-    "Error": {
+    "ErrorResponse": {
       "type": "object",
       "example": {
         "status": 0,
@@ -2370,7 +2508,8 @@
       },
       "properties": {
         "ref": {
-          "type": "string"
+          "type": "string",
+          "title": "Number's reference"
         },
         "providerRef": {
           "type": "string",
@@ -2425,6 +2564,7 @@
         },
         "ref": {
           "type": "string",
+          "title": "Project's reference",
           "required": [
             "ref"
           ]
@@ -2482,7 +2622,8 @@
       },
       "properties": {
         "ref": {
-          "type": "string"
+          "type": "string",
+          "title": "Provider's reference"
         },
         "name": {
           "type": "string",
@@ -2579,33 +2720,6 @@
         }
       }
     },
-    "UpdateNumberRequest": {
-      "type": "object",
-      "example": {
-        "ref": "aiuY1z0tzd",
-        "ingressInfo": {
-          "webhook": "https://c5b6-172-220-243-215.ngrok.io"
-        }
-      },
-      "properties": {
-        "number": {
-          "$ref": "#/definitions/Number"
-        }
-      }
-    },
-    "UpdateProviderRequest": {
-      "type": "object",
-      "example": {
-        "ref": "ghnH1z0tzd",
-        "username": "200122",
-        "secret": "TerD$$sd01"
-      },
-      "properties": {
-        "provider": {
-          "$ref": "#/definitions/Provider"
-        }
-      }
-    },
     "UploadObjectRequest.Bucket": {
       "type": "string",
       "enum": [
@@ -2640,6 +2754,7 @@
       "properties": {
         "ref": {
           "type": "string",
+          "title": "User's reference",
           "required": [
             "ref"
           ]
