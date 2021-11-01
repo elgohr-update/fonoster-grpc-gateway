@@ -1,7 +1,7 @@
 {
   "swagger": "2.0",
   "info": {
-    "title": "Project Fonos",
+    "title": "Fonoster",
     "version": "v1beta1",
     "contact": {
       "name": "Fonoster OSS",
@@ -10,7 +10,7 @@
     },
     "license": {
       "name": "MIT License",
-      "url": "https://raw.githubusercontent.com/fonoster/fonos/main/LICENSE"
+      "url": "https://raw.githubusercontent.com/fonoster/fonoster/main/LICENSE"
     }
   },
   "tags": [
@@ -334,7 +334,7 @@
     },
     "/v1beta1/auth/token/{token}": {
       "get": {
-        "summary": "Verifies if a token was issue by Fonos",
+        "summary": "Verifies if a token was issue by Fonoster",
         "operationId": "Auth_ValidateToken",
         "responses": {
           "200": {
@@ -2834,6 +2834,6 @@
   ],
   "externalDocs": {
     "description": "Github Repo",
-    "url": "https://github.com/fonoster/fonos"
+    "url": "https://github.com/fonoster/fonoster"
   }
 }

@@ -21,18 +21,18 @@ ENV PROTOS=" \
 WORKDIR /protos
 COPY protos /protos
 
-ADD https://raw.githubusercontent.com/fonoster/fonos/$BRANCH/mods/core/src/protos/common.proto /protos/common.proto
-ADD https://raw.githubusercontent.com/fonoster/fonos/$BRANCH/mods/users/src/protos/users.proto /protos/users.proto
-ADD https://raw.githubusercontent.com/fonoster/fonos/$BRANCH/mods/projects/src/protos/projects.proto /protos/projects.proto
-ADD https://raw.githubusercontent.com/fonoster/fonos/$BRANCH/mods/agents/src/protos/agents.proto /protos/agents.proto
-ADD https://raw.githubusercontent.com/fonoster/fonos/$BRANCH/mods/domains/src/protos/domains.proto /protos/domains.proto
-ADD https://raw.githubusercontent.com/fonoster/fonos/$BRANCH/mods/providers/src/protos/providers.proto /protos/providers.proto
-ADD https://raw.githubusercontent.com/fonoster/fonos/$BRANCH/mods/numbers/src/protos/numbers.proto /protos/numbers.proto
-ADD https://raw.githubusercontent.com/fonoster/fonos/$BRANCH/mods/callmanager/src/protos/callmanager.proto /protos/callmanager.proto
-ADD https://raw.githubusercontent.com/fonoster/fonos/$BRANCH/mods/auth/src/protos/auth.proto /protos/auth.proto
-ADD https://raw.githubusercontent.com/fonoster/fonos/$BRANCH/mods/funcs/src/protos/funcs.proto /protos/funcs.proto
-ADD https://raw.githubusercontent.com/fonoster/fonos/$BRANCH/mods/secrets/src/protos/secrets.proto /protos/secrets.proto
-ADD https://raw.githubusercontent.com/fonoster/fonos/$BRANCH/mods/storage/src/protos/storage.proto /protos/storage.proto
+ADD https://raw.githubusercontent.com/fonoster/fonoster/$BRANCH/mods/core/src/protos/common.proto /protos/common.proto
+ADD https://raw.githubusercontent.com/fonoster/fonoster/$BRANCH/mods/users/src/protos/users.proto /protos/users.proto
+ADD https://raw.githubusercontent.com/fonoster/fonoster/$BRANCH/mods/projects/src/protos/projects.proto /protos/projects.proto
+ADD https://raw.githubusercontent.com/fonoster/fonoster/$BRANCH/mods/agents/src/protos/agents.proto /protos/agents.proto
+ADD https://raw.githubusercontent.com/fonoster/fonoster/$BRANCH/mods/domains/src/protos/domains.proto /protos/domains.proto
+ADD https://raw.githubusercontent.com/fonoster/fonoster/$BRANCH/mods/providers/src/protos/providers.proto /protos/providers.proto
+ADD https://raw.githubusercontent.com/fonoster/fonoster/$BRANCH/mods/numbers/src/protos/numbers.proto /protos/numbers.proto
+ADD https://raw.githubusercontent.com/fonoster/fonoster/$BRANCH/mods/callmanager/src/protos/callmanager.proto /protos/callmanager.proto
+ADD https://raw.githubusercontent.com/fonoster/fonoster/$BRANCH/mods/auth/src/protos/auth.proto /protos/auth.proto
+ADD https://raw.githubusercontent.com/fonoster/fonoster/$BRANCH/mods/funcs/src/protos/funcs.proto /protos/funcs.proto
+ADD https://raw.githubusercontent.com/fonoster/fonoster/$BRANCH/mods/secrets/src/protos/secrets.proto /protos/secrets.proto
+ADD https://raw.githubusercontent.com/fonoster/fonoster/$BRANCH/mods/storage/src/protos/storage.proto /protos/storage.proto
 
 RUN apt-get update && apt-get install -y unzip
 RUN curl -OL https://github.com/protocolbuffers/protobuf/releases/download/v$PROTOC_VERSION/$PROTOC_ZIP \
@@ -51,7 +51,7 @@ COPY . /scripts
 RUN ./install.sh \
   && apk add curl
 WORKDIR /protos
-RUN chown -R fonos /protos
-USER fonos
+RUN chown -R fonoster /protos
+USER fonoster
 
 HEALTHCHECK CMD curl --fail  http://localhost:8080/api/ping || exit 1
