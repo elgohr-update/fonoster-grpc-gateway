@@ -42,6 +42,7 @@
   },
   "homepage": "https://github.com/fonoster/grpc-gateway/issues#readme",
   "dependencies": {
+    "@fonoster/ctl": "^0.2.13",
     "@grpc/proto-loader": "0.5.1",
     "body-parser": "^1.18.2",
     "chalk": "^3.0.0",
