@@ -1568,6 +1568,27 @@
       }
     },
     "/v1beta1/users": {
+      "get": {
+        "summary": "Lists all the Users you have access to",
+        "operationId": "Users_ListUsers",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/ListUsersResponse"
+            }
+          },
+          "default": {
+            "description": "User or system error.",
+            "schema": {
+              "$ref": ".fonoster.common.v1beta1.Error"
+            }
+          }
+        },
+        "tags": [
+          "Users"
+        ]
+      },
       "post": {
         "summary": "Creates a new User resource",
         "operationId": "Users_CreateUser",
@@ -2475,6 +2496,17 @@
         "nextPageToken": {
           "type": "string",
           "title": "Token to retrieve the next page of results, or empty if there are no more results in the list"
+        }
+      }
+    },
+    "ListUsersResponse": {
+      "type": "object",
+      "properties": {
+        "users": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/User"
+          }
         }
       }
     },
