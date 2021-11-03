@@ -74,7 +74,7 @@
           "default": {
             "description": "User or system error.",
             "schema": {
-              "$ref": "#/definitions/ErrorResponse"
+              "$ref": ".fonoster.common.v1beta1.Error"
             }
           }
         },
@@ -125,7 +125,7 @@
           "default": {
             "description": "User or system error.",
             "schema": {
-              "$ref": "#/definitions/ErrorResponse"
+              "$ref": ".fonoster.common.v1beta1.Error"
             }
           }
         },
@@ -158,7 +158,7 @@
           "default": {
             "description": "User or system error.",
             "schema": {
-              "$ref": "#/definitions/ErrorResponse"
+              "$ref": ".fonoster.common.v1beta1.Error"
             }
           }
         },
@@ -188,7 +188,7 @@
           "default": {
             "description": "User or system error.",
             "schema": {
-              "$ref": "#/definitions/ErrorResponse"
+              "$ref": ".fonoster.common.v1beta1.Error"
             }
           }
         },
@@ -218,7 +218,7 @@
           "default": {
             "description": "User or system error.",
             "schema": {
-              "$ref": "#/definitions/ErrorResponse"
+              "$ref": ".fonoster.common.v1beta1.Error"
             }
           }
         },
@@ -282,7 +282,7 @@
           "default": {
             "description": "User or system error.",
             "schema": {
-              "$ref": "#/definitions/ErrorResponse"
+              "$ref": ".fonoster.common.v1beta1.Error"
             }
           }
         },
@@ -313,7 +313,7 @@
           "default": {
             "description": "User or system error.",
             "schema": {
-              "$ref": "#/definitions/ErrorResponse"
+              "$ref": ".fonoster.common.v1beta1.Error"
             }
           }
         },
@@ -346,7 +346,7 @@
           "default": {
             "description": "User or system error.",
             "schema": {
-              "$ref": "#/definitions/ErrorResponse"
+              "$ref": ".fonoster.common.v1beta1.Error"
             }
           }
         },
@@ -377,7 +377,7 @@
           "default": {
             "description": "User or system error.",
             "schema": {
-              "$ref": "#/definitions/ErrorResponse"
+              "$ref": ".fonoster.common.v1beta1.Error"
             }
           }
         },
@@ -410,7 +410,7 @@
           "default": {
             "description": "User or system error.",
             "schema": {
-              "$ref": "#/definitions/ErrorResponse"
+              "$ref": ".fonoster.common.v1beta1.Error"
             }
           }
         },
@@ -443,7 +443,7 @@
           "default": {
             "description": "User or system error.",
             "schema": {
-              "$ref": "#/definitions/ErrorResponse"
+              "$ref": ".fonoster.common.v1beta1.Error"
             }
           }
         },
@@ -473,7 +473,7 @@
           "default": {
             "description": "User or system error.",
             "schema": {
-              "$ref": "#/definitions/ErrorResponse"
+              "$ref": ".fonoster.common.v1beta1.Error"
             }
           }
         },
@@ -503,7 +503,7 @@
           "default": {
             "description": "User or system error.",
             "schema": {
-              "$ref": "#/definitions/ErrorResponse"
+              "$ref": ".fonoster.common.v1beta1.Error"
             }
           }
         },
@@ -569,7 +569,7 @@
           "default": {
             "description": "User or system error.",
             "schema": {
-              "$ref": "#/definitions/ErrorResponse"
+              "$ref": ".fonoster.common.v1beta1.Error"
             }
           }
         },
@@ -622,7 +622,7 @@
           "default": {
             "description": "User or system error.",
             "schema": {
-              "$ref": "#/definitions/ErrorResponse"
+              "$ref": ".fonoster.common.v1beta1.Error"
             }
           }
         },
@@ -664,7 +664,7 @@
           "default": {
             "description": "User or system error.",
             "schema": {
-              "$ref": "#/definitions/ErrorResponse"
+              "$ref": ".fonoster.common.v1beta1.Error"
             }
           }
         },
@@ -683,19 +683,19 @@
     },
     "/v1beta1/funcs/{name}/logs": {
       "get": {
-        "summary": "Peforms a hard delete of the function",
+        "summary": "Gets a stream of logs",
         "operationId": "Funcs_GetFuncLogs",
         "responses": {
           "200": {
             "description": "Stream of logs",
             "schema": {
-              "$ref": "#/definitions/FuncLog"
+              "$ref": "FuncLog"
             }
           },
           "default": {
             "description": "User or system error.",
             "schema": {
-              "$ref": "#/definitions/ErrorResponse"
+              "$ref": ".fonoster.common.v1beta1.Error"
             }
           }
         },
@@ -746,7 +746,7 @@
           "default": {
             "description": "User or system error.",
             "schema": {
-              "$ref": "#/definitions/ErrorResponse"
+              "$ref": ".fonoster.common.v1beta1.Error"
             }
           }
         },
@@ -797,7 +797,7 @@
           "default": {
             "description": "User or system error.",
             "schema": {
-              "$ref": "#/definitions/ErrorResponse"
+              "$ref": ".fonoster.common.v1beta1.Error"
             }
           }
         },
@@ -830,7 +830,7 @@
           "default": {
             "description": "User or system error.",
             "schema": {
-              "$ref": "#/definitions/ErrorResponse"
+              "$ref": ".fonoster.common.v1beta1.Error"
             }
           }
         },
@@ -860,7 +860,7 @@
           "default": {
             "description": "User or system error.",
             "schema": {
-              "$ref": "#/definitions/ErrorResponse"
+              "$ref": ".fonoster.common.v1beta1.Error"
             }
           }
         },
@@ -890,7 +890,7 @@
           "default": {
             "description": "User or system error.",
             "schema": {
-              "$ref": "#/definitions/ErrorResponse"
+              "$ref": ".fonoster.common.v1beta1.Error"
             }
           }
         },
@@ -943,7 +943,7 @@
           "default": {
             "description": "User or system error.",
             "schema": {
-              "$ref": "#/definitions/ErrorResponse"
+              "$ref": ".fonoster.common.v1beta1.Error"
             }
           }
         },
@@ -964,7 +964,7 @@
           "default": {
             "description": "User or system error.",
             "schema": {
-              "$ref": "#/definitions/ErrorResponse"
+              "$ref": ".fonoster.common.v1beta1.Error"
             }
           }
         },
@@ -997,7 +997,7 @@
           "default": {
             "description": "User or system error.",
             "schema": {
-              "$ref": "#/definitions/ErrorResponse"
+              "$ref": ".fonoster.common.v1beta1.Error"
             }
           }
         },
@@ -1027,7 +1027,7 @@
           "default": {
             "description": "User or system error.",
             "schema": {
-              "$ref": "#/definitions/ErrorResponse"
+              "$ref": ".fonoster.common.v1beta1.Error"
             }
           }
         },
@@ -1057,7 +1057,7 @@
           "default": {
             "description": "User or system error.",
             "schema": {
-              "$ref": "#/definitions/ErrorResponse"
+              "$ref": ".fonoster.common.v1beta1.Error"
             }
           }
         },
@@ -1115,7 +1115,7 @@
           "default": {
             "description": "User or system error.",
             "schema": {
-              "$ref": "#/definitions/ErrorResponse"
+              "$ref": ".fonoster.common.v1beta1.Error"
             }
           }
         },
@@ -1147,7 +1147,7 @@
           "default": {
             "description": "User or system error.",
             "schema": {
-              "$ref": "#/definitions/ErrorResponse"
+              "$ref": ".fonoster.common.v1beta1.Error"
             }
           }
         },
@@ -1198,7 +1198,7 @@
           "default": {
             "description": "User or system error.",
             "schema": {
-              "$ref": "#/definitions/ErrorResponse"
+              "$ref": ".fonoster.common.v1beta1.Error"
             }
           }
         },
@@ -1231,7 +1231,7 @@
           "default": {
             "description": "User or system error.",
             "schema": {
-              "$ref": "#/definitions/ErrorResponse"
+              "$ref": ".fonoster.common.v1beta1.Error"
             }
           }
         },
@@ -1261,7 +1261,7 @@
           "default": {
             "description": "User or system error.",
             "schema": {
-              "$ref": "#/definitions/ErrorResponse"
+              "$ref": ".fonoster.common.v1beta1.Error"
             }
           }
         },
@@ -1291,7 +1291,7 @@
           "default": {
             "description": "User or system error.",
             "schema": {
-              "$ref": "#/definitions/ErrorResponse"
+              "$ref": ".fonoster.common.v1beta1.Error"
             }
           }
         },
@@ -1378,7 +1378,7 @@
           "default": {
             "description": "User or system error.",
             "schema": {
-              "$ref": "#/definitions/ErrorResponse"
+              "$ref": ".fonoster.common.v1beta1.Error"
             }
           }
         },
@@ -1428,7 +1428,7 @@
           "default": {
             "description": "User or system error.",
             "schema": {
-              "$ref": "#/definitions/ErrorResponse"
+              "$ref": ".fonoster.common.v1beta1.Error"
             }
           }
         },
@@ -1461,7 +1461,7 @@
           "default": {
             "description": "User or system error.",
             "schema": {
-              "$ref": "#/definitions/ErrorResponse"
+              "$ref": ".fonoster.common.v1beta1.Error"
             }
           }
         },
@@ -1502,7 +1502,7 @@
           "default": {
             "description": "User or system error.",
             "schema": {
-              "$ref": "#/definitions/ErrorResponse"
+              "$ref": ".fonoster.common.v1beta1.Error"
             }
           }
         },
@@ -1532,7 +1532,7 @@
           "default": {
             "description": "User or system error.",
             "schema": {
-              "$ref": "#/definitions/ErrorResponse"
+              "$ref": ".fonoster.common.v1beta1.Error"
             }
           }
         },
@@ -1581,7 +1581,7 @@
           "default": {
             "description": "User or system error.",
             "schema": {
-              "$ref": "#/definitions/ErrorResponse"
+              "$ref": ".fonoster.common.v1beta1.Error"
             }
           }
         },
@@ -1614,7 +1614,7 @@
           "default": {
             "description": "User or system error.",
             "schema": {
-              "$ref": "#/definitions/ErrorResponse"
+              "$ref": ".fonoster.common.v1beta1.Error"
             }
           }
         },
@@ -1647,7 +1647,7 @@
           "default": {
             "description": "User or system error.",
             "schema": {
-              "$ref": "#/definitions/ErrorResponse"
+              "$ref": ".fonoster.common.v1beta1.Error"
             }
           }
         },
@@ -1677,7 +1677,7 @@
           "default": {
             "description": "User or system error.",
             "schema": {
-              "$ref": "#/definitions/ErrorResponse"
+              "$ref": ".fonoster.common.v1beta1.Error"
             }
           }
         },
@@ -1707,7 +1707,7 @@
           "default": {
             "description": "User or system error.",
             "schema": {
-              "$ref": "#/definitions/ErrorResponse"
+              "$ref": ".fonoster.common.v1beta1.Error"
             }
           }
         },
@@ -2266,22 +2266,6 @@
     },
     "Empty": {
       "type": "object"
-    },
-    "ErrorResponse": {
-      "type": "object",
-      "example": {
-        "status": 0,
-        "message": "string"
-      },
-      "properties": {
-        "status": {
-          "type": "integer",
-          "format": "int32"
-        },
-        "message": {
-          "type": "string"
-        }
-      }
     },
     "Func": {
       "type": "object",

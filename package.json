@@ -7,7 +7,7 @@
     "run": "run.js"
   },
   "scripts": {
-    "init": "./.script/init.sh",
+    "init": "./.scripts/init.sh",
     "prestart": "./.scripts/generate_swagger.sh",
     "start": "APISERVER_ENDPOINT=localhost:50052 PROTOS_DIR=$(pwd)/protos nodemon run.js",
     "test": "jest",
