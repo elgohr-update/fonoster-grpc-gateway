@@ -81,7 +81,7 @@
         "parameters": [
           {
             "name": "pageSize",
-            "description": "The maximum number of items in the list.",
+            "description": "The maximum number of items in the list",
             "in": "query",
             "required": false,
             "type": "integer",
@@ -89,14 +89,14 @@
           },
           {
             "name": "pageToken",
-            "description": "The next_page_token value returned from the previous request, if any.",
+            "description": "The next_page_token value returned from the previous request, if any",
             "in": "query",
             "required": false,
             "type": "string"
           },
           {
             "name": "view",
-            "description": "Level of detail of the individual entities (reserved).",
+            "description": "Level of detail of the individual entities (reserved)",
             "in": "query",
             "required": false,
             "type": "string",
@@ -242,9 +242,6 @@
               },
               "properties": {
                 "name": {
-                  "type": "string"
-                },
-                "username": {
                   "type": "string"
                 },
                 "secret": {
@@ -576,7 +573,7 @@
         "parameters": [
           {
             "name": "pageSize",
-            "description": "The maximum number of items in the list.",
+            "description": "The maximum number of items in the list",
             "in": "query",
             "required": false,
             "type": "integer",
@@ -584,14 +581,14 @@
           },
           {
             "name": "pageToken",
-            "description": "The next_page_token value returned from the previous request, if any.",
+            "description": "The next_page_token value returned from the previous request, if any",
             "in": "query",
             "required": false,
             "type": "string"
           },
           {
             "name": "view",
-            "description": "Level of detail of the individual entities.",
+            "description": "Level of detail of the individual entities",
             "in": "query",
             "required": false,
             "type": "string",
@@ -635,7 +632,7 @@
           },
           {
             "name": "view",
-            "description": "Requested level of detail.",
+            "description": "Requested level of detail",
             "in": "query",
             "required": false,
             "type": "string",
@@ -708,7 +705,7 @@
           },
           {
             "name": "since",
-            "description": "Only return logs after a specific date (RFC3339).",
+            "description": "Only return logs after a specific date (RFC3339)",
             "in": "query",
             "required": false,
             "type": "string"
@@ -753,7 +750,7 @@
         "parameters": [
           {
             "name": "pageSize",
-            "description": "The maximum number of items in the list.",
+            "description": "The maximum number of items in the list",
             "in": "query",
             "required": false,
             "type": "integer",
@@ -768,7 +765,7 @@
           },
           {
             "name": "view",
-            "description": "Level of detail of the individual entities (reserved).",
+            "description": "Level of detail of the individual entities (reserved)",
             "in": "query",
             "required": false,
             "type": "string",
@@ -1086,7 +1083,7 @@
                 "allowExperiments": {
                   "type": "boolean",
                   "required": [
-                    "allow_experiments"
+                    "allowExperiments"
                   ]
                 }
               },
@@ -1154,7 +1151,7 @@
         "parameters": [
           {
             "name": "pageSize",
-            "description": "The maximum number of items in the list.",
+            "description": "The maximum number of items in the list",
             "in": "query",
             "required": false,
             "type": "integer",
@@ -1162,14 +1159,14 @@
           },
           {
             "name": "pageToken",
-            "description": "The next_page_token value returned from the previous request, if any.",
+            "description": "The next_page_token value returned from the previous request, if any",
             "in": "query",
             "required": false,
             "type": "string"
           },
           {
             "name": "view",
-            "description": "Level of detail of the individual entities (reserved).",
+            "description": "Level of detail of the individual entities (reserved)",
             "in": "query",
             "required": false,
             "type": "string",
@@ -1372,7 +1369,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/ListSecretIdResponse"
+              "$ref": "#/definitions/ListSecretsIdResponse"
             }
           },
           "default": {
@@ -1385,7 +1382,7 @@
         "parameters": [
           {
             "name": "pageSize",
-            "description": "The maximum number of items in the list.",
+            "description": "The maximum number of items in the list",
             "in": "query",
             "required": false,
             "type": "integer",
@@ -1393,14 +1390,14 @@
           },
           {
             "name": "pageToken",
-            "description": "The next_page_token value returned from the previous request, if any.",
+            "description": "The next_page_token value returned from the previous request, if any",
             "in": "query",
             "required": false,
             "type": "string"
           },
           {
             "name": "view",
-            "description": "Level of detail of the individual entities (reserved).",
+            "description": "Level of detail of the individual entities (reserved)",
             "in": "query",
             "required": false,
             "type": "string",
@@ -1422,7 +1419,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/CreateSecretResponse"
+              "$ref": "#/definitions/Secret"
             }
           },
           "default": {
@@ -1455,7 +1452,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/GetSecretResponse"
+              "$ref": "#/definitions/Secret"
             }
           },
           "default": {
@@ -1940,7 +1937,7 @@
         "domainUri": {
           "type": "string",
           "required": [
-            "domain_uri"
+            "domainUri"
           ]
         },
         "egressRule": {
@@ -1980,13 +1977,13 @@
         "providerRef": {
           "type": "string",
           "required": [
-            "provider_ref"
+            "providerRef"
           ]
         },
         "e164Number": {
           "type": "string",
           "required": [
-            "e164_number"
+            "e164Number"
           ]
         },
         "aorLink": {
@@ -2101,14 +2098,6 @@
         }
       }
     },
-    "CreateSecretResponse": {
-      "type": "object",
-      "properties": {
-        "name": {
-          "type": "string"
-        }
-      }
-    },
     "CreateTokenRequest": {
       "type": "object",
       "example": {
@@ -2119,13 +2108,13 @@
         "roleName": {
           "type": "string",
           "required": [
-            "role_name"
+            "roleName"
           ]
         },
         "accessKeyId": {
           "type": "string",
           "required": [
-            "access_key_id"
+            "accessKeyId"
           ]
         },
         "expiration": {
@@ -2250,7 +2239,7 @@
         "domainUri": {
           "type": "string",
           "required": [
-            "domain_uri"
+            "domainUri"
           ]
         },
         "egressRule": {
@@ -2386,17 +2375,6 @@
         }
       }
     },
-    "GetSecretResponse": {
-      "type": "object",
-      "properties": {
-        "name": {
-          "type": "string"
-        },
-        "secret": {
-          "type": "string"
-        }
-      }
-    },
     "IngressInfo": {
       "type": "object",
       "properties": {
@@ -2499,13 +2477,13 @@
         }
       }
     },
-    "ListSecretIdResponse": {
+    "ListSecretsIdResponse": {
       "type": "object",
       "properties": {
         "secrets": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/SecretName"
+            "type": "string"
           },
           "title": "List of Secrets"
         },
@@ -2546,13 +2524,13 @@
         "providerRef": {
           "type": "string",
           "required": [
-            "provider_ref"
+            "providerRef"
           ]
         },
         "e164Number": {
           "type": "string",
           "required": [
-            "e164_number"
+            "e164Number"
           ]
         },
         "aorLink": {
@@ -2604,19 +2582,19 @@
         "userRef": {
           "type": "string",
           "required": [
-            "user_ref"
+            "userRef"
           ]
         },
         "accessKeyId": {
           "type": "string",
           "required": [
-            "access_key_id"
+            "accessKeyId"
           ]
         },
         "accessKeySecret": {
           "type": "string",
           "required": [
-            "access_key_secret"
+            "accessKeySecret"
           ]
         },
         "allowExperiments": {
@@ -2744,10 +2722,17 @@
         }
       }
     },
-    "SecretName": {
+    "Secret": {
       "type": "object",
+      "example": {
+        "name": "mydbsecret",
+        "secret": "s3cr3t"
+      },
       "properties": {
         "name": {
+          "type": "string"
+        },
+        "secret": {
           "type": "string"
         }
       }
@@ -2794,7 +2779,7 @@
         "accessKeyId": {
           "type": "string",
           "required": [
-            "access_key_id"
+            "accessKeyId"
           ]
         },
         "email": {

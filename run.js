@@ -36,4 +36,6 @@ const port = process.env.PORT || 8080
 
 app.listen(port, () => {
   console.log(`Listening on 0.0.0.0 @ ${port}`)
+  console.log(`docs at http://localhost:${port}/api/api-docs`)
+  console.log(`ping at http://localhost:${port}/api/ping`)
 })
