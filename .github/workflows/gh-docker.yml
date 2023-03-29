@@ -20,7 +20,7 @@ jobs:
         run: |
           sed -i.bak s/#{FONOSTER_VERSION}/${FONOSTER_VERSION}/ package.json
       - name: Publish
-        uses: elgohr/Publish-Docker-Github-Action@master
+        uses: elgohr/Publish-Docker-Github-Action@v5
         with:
           name: fonoster/grpc-gateway
           username: ${{ secrets.DOCKER_HUB_USERNAME }}
